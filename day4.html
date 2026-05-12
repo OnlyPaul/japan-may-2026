@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 4 · Hakone Day — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 04<span class="sep">/</span>Hakone</span>
+    <a class="btn-secondary btn-sm" href="day3.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day5.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero lilac">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Mon · May 18 · Day 04</div>
+    <h1 class="display-lg">Hakone Day <span class="sub">+ return to Tokyo</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Locked plan</span>
+      <span class="chip warn">Mon rush hour back</span>
+      <span class="chip">Last car day</span>
+      <span class="chip">Check-in Ikebukuro</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Mountain morning, city evening.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">Hakone · day</div>
+        <div class="big">19°<span class="unit">/ 11°</span></div>
+        <div class="desc">Owakudani sits at 1,000m — cooler and windier than the lake. Sulfur smell is normal. Lake Ashi often has a soft haze in the late afternoon.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/17/4612/14382/" target="_blank" rel="noopener">tenki.jp Hakone →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">25<span class="unit">%</span></div>
+        <div class="desc">Mountains pull weather in fast.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon cool" aria-hidden="true">⌀</span>
+        <div class="label">Owakudani wind</div>
+        <div class="big">5–8<span class="unit">m/s</span></div>
+        <div class="desc">Light jacket essential up top.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↓</span>
+        <div class="label">Sunset</div>
+        <div class="big">18:38</div>
+        <div class="desc">You should be on the highway by 16:30.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Fujinomiya → Hakone → Ikebukuro.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day4"></div>
+      <div class="map-legend"><div><span class="swatch"></span>Driving · real road (incl. highway back to Tokyo)</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">~09:00</div><div class="timeline-body"><strong>Drive Fujinomiya → Hakone</strong> (~1 hr). Fuel up before Hakone Skyline.</div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">10:00</div><div class="timeline-body"><strong>Owakudani</strong> — drive up via Hakone Skyline, park, walk to the sulfur vents. <strong>Black eggs</strong> (kuro-tamago, ¥500 for 5) extend your life by 7 years per local legend. <span class="small">No ropeway needed — driving direct is faster anyway.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">13:00</div><div class="timeline-body"><strong>Lake Ashi · Hakone Shrine</strong> — the red torii in the water (Heiwa-no-Torii). Queue moves fast on weekdays.</div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">15:30</div><div class="timeline-body"><strong>Depart Hakone</strong> (15:30, not 16:00 — Mon rush-hour buffer for Tokyo entry).</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">~18:30</div><div class="timeline-body"><strong>Return car · Nippon Ikebukuro West Exit</strong>. Inspect for damage with the attendant before signing.</div></div>
+      <div class="timeline-item"><div class="timeline-num">6</div><div class="timeline-time">Evening</div><div class="timeline-body"><strong>Check in · Tokyu Stay Ikebukuro</strong> — your base for the next 6 nights. Unpack, then casual dinner nearby.</div></div>
+    </div>
+    <div class="note-line warn"><strong>Pre-program return address in navi BEFORE leaving Hakone.</strong> A single C2 accident easily adds 30+ min. If Owakudani is closed for volcanic activity (rare), skip straight to Lake Ashi.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">Quick lunch + Ikebukuro dinner.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Lunch · primary</span></div>
+        <div class="food-name">Owakudani Kuro-Tamago Kan</div>
+        <div class="food-cuisine">Black eggs + light cafe set (curry rice, soba, oden). Eat on the sulfur-vent deck.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,200</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Quick</span>
+        </div>
+        <div class="food-note">Limited menu, big crowds. Treat as a snack + souvenir black eggs rather than a real meal.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Owakudani+Kuro-Tamago" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · alt 1</span></div>
+        <div class="food-name">Hatsuhana Honten</div>
+        <div class="food-cuisine">Hand-cut soba next to Hayakawa River. Ten-zaru (tempura + cold soba) is the move.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,000</span>
+          <span class="food-stat">Walk-in (queues)</span>
+        </div>
+        <div class="food-note">Detour adds ~10 min from Owakudani. Real lunch if eggs aren't enough.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Hatsuhana+Honten+Hakone" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · primary</span></div>
+        <div class="food-name">Yamadaya (Ikebukuro)</div>
+        <div class="food-cuisine">Casual izakaya — sashimi, grilled fish, agedashi tofu, highball. Walk-in friendly.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥3,000</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">8-min from hotel</span>
+        </div>
+        <div class="food-note">After a long drive day, the no-decision izakaya choice. Stay under budget by skipping a second round.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Yamadaya+Ikebukuro" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt</span></div>
+        <div class="food-name">Tonkatsu Hasegawa (Ikebukuro)</div>
+        <div class="food-cuisine">Single-location tonkatsu — rosu and hire sets, finely shredded cabbage refills, Tonjiru on the side.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,800</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Single location</span>
+        </div>
+        <div class="food-note">A solid Tonkatsu alt — not a chain, hits the homestyle mark. Cash preferred.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tonkatsu+Hasegawa+Ikebukuro" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/owakudani.jpg" alt="Owakudani sulfur vents">
+        <div class="caption-area">
+          <div class="label">Owakudani</div>
+          <div class="title">Sulfur vents at 1,044m</div>
+          <div class="desc">The boardwalk loop is short (~15 min). Smell is intense. Buy eggs while walking up — easier to carry than down.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/hakone-shrine.jpg" alt="Hakone Shrine floating torii">
+        <div class="caption-area">
+          <div class="label">Heiwa-no-Torii</div>
+          <div class="title">The torii in Lake Ashi</div>
+          <div class="desc">Line up to step onto the platform for the photo (rope-line in place). 5–15 min wait on weekdays. Be quick — there's a rhythm to the queue.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Owakudani parking</span>
+        <span class="title">Drive up, don't take the ropeway</span>
+        <ol>
+          <li>From Fujinomiya, take <strong>Route 1</strong> → Hakone Skyline (¥500 toll)</li>
+          <li>Owakudani has a small paid lot — ¥500 for 2 hr, usually has space on weekdays</li>
+          <li>If full, the ropeway station lot at Sounzan also works; bus up to Owakudani</li>
+          <li>Volcanic activity occasionally closes the area — check status before driving up</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Nippon Ikebukuro West return</span>
+        <span class="title">Where to drop the car</span>
+        <ol>
+          <li><strong>West Exit (Nishi-guchi)</strong> of Ikebukuro Station — not the East side</li>
+          <li>Office is on the basement level of the Nippon parking structure</li>
+          <li>Staff walks the car with you to check for new damage — sign off, return keys + ETC</li>
+          <li>Walk 8 min south to Tokyu Stay; or use the West Exit underground passage to avoid road crossings</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line tip"><strong>Fuel up before Hakone Skyline.</strong> No gas stations on the toll road. Last station in Gotemba.</div>
+      <div class="note-line tip"><strong>Tokyo entry buffer.</strong> Mondays around the Shuto Expressway can stack — leave Hakone at 15:30, not 16:00.</div>
+      <div class="note-line warn"><strong>Car return inspection.</strong> Walk around with the Nippon staff and photograph any pre-existing scratches before signing. Insurance disputes can hit days later.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day3.html" data-prev-day>
+      <span class="label">← Previous · Sun May 17</span>
+      <span class="title">Day 03 · Fuji West Loop</span>
+    </a>
+    <a class="next" href="day5.html" data-next-day>
+      <span class="label">Next · Tue May 19</span>
+      <span class="title">Day 05 · Old Tokyo →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 04.</div>
+  <p class="body-lg">Last day with wheels. From here on out it's all trains, station signs, and walking.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 04 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

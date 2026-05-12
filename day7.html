@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 · Bay &amp; Markets — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 07<span class="sep">/</span>Bay &amp; Markets</span>
+    <a class="btn-secondary btn-sm" href="day6.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day8.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero canvas">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Thu · May 21 · Day 07</div>
+    <h1 class="display-lg">Bay &amp; Markets <span class="sub">Tsukiji → Toyosu → Odaiba</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">teamLab timed entry</span>
+      <span class="chip">Early start</span>
+      <span class="chip">Yurikamome line</span>
+      <span class="chip">Wet feet at teamLab</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Bay-front, breezy.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">Tokyo Bay · day</div>
+        <div class="big">24°<span class="unit">/ 17°</span></div>
+        <div class="desc">Slightly humid, sea breeze at Odaiba is welcome. Rainbow Bridge sunset walk is exposed — bring a light layer.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/16/4410/13108/" target="_blank" rel="noopener">tenki.jp Tokyo Bay →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">40<span class="unit">%</span></div>
+        <div class="desc">Higher coastal probability — pack umbrella.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↑</span>
+        <div class="label">Tsukiji peak</div>
+        <div class="big">07–10</div>
+        <div class="desc">Best stalls busy by 8 AM.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">↓</span>
+        <div class="label">Sunset over bay</div>
+        <div class="big">18:42</div>
+        <div class="desc">Rainbow Bridge walk = 18:00 start.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Old fish market → new fish market → digital art → bay.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day7"></div>
+      <div class="map-legend">
+        <div><span class="swatch dashed"></span>Yurikamome line (rail)</div>
+        <div><span class="swatch"></span>Walking · real streets</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">Early AM</div><div class="timeline-body"><strong>Tsukiji Outer Market</strong> — best 7–10 AM. Tamagoyaki (Marutake), uni at Yamacho, grilled scallops, mochi.</div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">Late AM</div><div class="timeline-body"><strong>Toyosu Market</strong> viewing decks + <strong>Senkyaku Banrai</strong> retro food street. <strong>Free 8F footbath</strong> with Tokyo Bay view.</div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">Afternoon</div><div class="timeline-body"><strong>teamLab Planets Toyosu</strong> — barefoot, knee-deep water rooms. Wear shorts or pants that roll up.</div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">Late PM</div><div class="timeline-body"><strong>Yurikamome to Odaiba</strong> · <strong>DiverCity Gundam</strong> + <strong>Rainbow Bridge sunset walk</strong> from Shibaura side.</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">Dinner</div><div class="timeline-body"><strong>Daiba Itchome Shotengai</strong> (Aqua City 4F) — Showa-era retro food street, multiple small vendors. See food section.</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">Markets + Odaiba retro street.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Breakfast · primary</span></div>
+        <div class="food-name">Tsukiji Outer Market — graze</div>
+        <div class="food-cuisine">Multiple small bites: tamagoyaki on a stick (Marutake), uni-bowl (Yamacho), grilled scallop, A5 wagyu stick. Pay each stall as you go.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,500 total</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Cash easier</span>
+        </div>
+        <div class="food-note">Eat-and-walk. Most stalls finish service ~13:00, but the best stuff is gone by 10:00.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tsukiji+Outer+Market" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Late AM · alt sit-down</span></div>
+        <div class="food-name">Senkyaku Banrai — Tonkatsu Yachiyo (Toyosu)</div>
+        <div class="food-cuisine">Tonkatsu specialist relocated from Tsukiji. Pork loin + raw egg + special miso — a Tsukiji classic.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-tight">~¥2,500–4,000</span>
+          <span class="food-stat">Walk-in queues</span>
+        </div>
+        <div class="food-note">If the morning Tsukiji graze didn't fill you, Yachiyo is the proper sit-down. Single-location.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tonkatsu+Yachiyo+Toyosu" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Late AM · alt seafood</span></div>
+        <div class="food-name">Senkyaku Banrai — Daiwa Sushi (Toyosu branch)</div>
+        <div class="food-cuisine">Edomae nigiri set — the legendary Tsukiji original now relocated. Sushi omakase set, counter seating.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-tight">~¥4,000 set</span>
+          <span class="food-stat">Walk-in (long queue)</span>
+        </div>
+        <div class="food-note">Right at the budget cap. Queue 60+ min on weekends; weekday late-morning manageable.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Daiwa+Sushi+Toyosu" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · primary</span></div>
+        <div class="food-name">Daiba Itchome Shotengai (Aqua City 4F)</div>
+        <div class="food-cuisine">Showa-era retro food street with multiple small vendors: donburi, takoyaki, oden, tonkatsu, monjayaki. Atmospheric, fun.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500–2,500</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Bay view nearby</span>
+        </div>
+        <div class="food-note">Mix-and-match across stalls. Skip Bills and TY Harbor — both over budget and Bills has BKK branches anyway.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Daiba+Itchome+Shotengai" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt</span></div>
+        <div class="food-name">Toyosu return — Senkyaku Banrai (variety)</div>
+        <div class="food-cuisine">Backtrack one Yurikamome stop. Multiple stalls — sushi, kaisen-don, kushiage, soba. Pick what's not queued.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,000–4,000</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">More variety than Daiba but you give up the Odaiba bay vibe.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Senkyaku+Banrai+Toyosu" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/tsukiji.jpg" alt="Tsukiji outer market">
+        <div class="caption-area">
+          <div class="label">Tsukiji Outer Market</div>
+          <div class="title">Eat-and-walk graze</div>
+          <div class="desc">Don't go shop-to-shop in order. Walk the whole thing once, mark 3–4 stalls, then graze in your preferred order with appetite calibrated.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/rainbow-bridge.jpg" alt="Rainbow Bridge Tokyo">
+        <div class="caption-area">
+          <div class="label">Rainbow Bridge</div>
+          <div class="title">Sunset walk, Shibaura side</div>
+          <div class="desc">Free pedestrian path opens 9–21. Start from Shibaura-futo side; ~30 min one-way. Best light 18:00–18:30 in May.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">teamLab Planets entry</span>
+        <span class="title">Where to enter, what to wear</span>
+        <ol>
+          <li>Yurikamome to <strong>Shin-Toyosu</strong> (not Toyosu) — exit toward the venue</li>
+          <li>Have <strong>QR ticket open</strong> on phone before queue</li>
+          <li>You'll go <strong>barefoot</strong> — wear shorts or rollup pants for the knee-deep water room</li>
+          <li>Lockers free; carry as little as possible. Phone in pocket = wet phone risk</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Toyosu Market entry</span>
+        <span class="title">Find the viewing decks</span>
+        <ol>
+          <li>Yurikamome to <strong>Shijo-mae Station</strong></li>
+          <li>Skywalk leads directly into the market complex</li>
+          <li>Tuna auction viewing deck = <strong>Building 7 (Wholesale)</strong>, 3F gallery</li>
+          <li>Senkyaku Banrai retail street + restaurants = same complex, separate entry</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line warn"><strong>teamLab time slot is fixed.</strong> Aim to be at the entrance 15 min before slot — there's a security/shoe-removal queue.</div>
+      <div class="note-line tip"><strong>Don't graze Tsukiji on a full stomach.</strong> Skip hotel breakfast or do a tiny one. The whole point of the market is the small-bite cadence.</div>
+      <div class="note-line tip"><strong>Rainbow Bridge wind.</strong> The pedestrian path is suspended; gusts can be 6+ m/s. Light jacket worth carrying even on warm days.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day6.html" data-prev-day>
+      <span class="label">← Previous · Wed May 20</span>
+      <span class="title">Day 06 · Kamakura</span>
+    </a>
+    <a class="next" href="day8.html" data-next-day>
+      <span class="label">Next · Fri May 22</span>
+      <span class="title">Day 08 · Marunouchi + Ginza →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 07.</div>
+  <p class="body-lg">Fish, footbath, fluorescence, sunset. Bay-front Tokyo in four acts.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 07 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10 · Home — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 10<span class="sep">/</span>Home</span>
+    <a class="btn-secondary btn-sm" href="day9.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="index.html">Back to start</a>
+  </div>
+</nav>
+
+<header class="day-hero canvas">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Sun · May 24 · Day 10</div>
+    <h1 class="display-lg">Easy Morning + Home</h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Light day</span>
+      <span class="chip">N'EX at 13:30</span>
+      <span class="chip">Ekiben for the ride</span>
+      <span class="chip">No Asakusa</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Sunday morning Tokyo.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">Tokyo · day</div>
+        <div class="big">24°<span class="unit">/ 17°</span></div>
+        <div class="desc">Marunouchi on Sunday morning is unusually empty — the financial district takes the weekend off. Easy stroll before catching N'EX.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/16/4410/13101/" target="_blank" rel="noopener">tenki.jp Tokyo →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">35<span class="unit">%</span></div>
+        <div class="desc">PM shower possible — covered station walks.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↑</span>
+        <div class="label">N'EX duration</div>
+        <div class="big">~60<span class="unit">min</span></div>
+        <div class="desc">Tokyo Stn → Narita T1.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">✈</span>
+        <div class="label">Flight time</div>
+        <div class="big">~6 hr</div>
+        <div class="desc">17:30 dep · 22:15 BKK arrival.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Ikebukuro → Tokyo Station → Narita → home.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day10"></div>
+      <div class="map-legend">
+        <div><span class="swatch dashed"></span>JR Yamanote / N'EX (rail)</div>
+        <div><span class="swatch flight"></span>NRT → BKK · great-circle</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">~10:30</div><div class="timeline-body"><strong>Check out</strong> · bags at hotel front desk or transfer to Tokyo Station coin lockers later.</div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">AM</div><div class="timeline-body"><strong>Marunouchi Sunday morning walk</strong> · Tokyo Station red-brick façade photos · cafe breakfast at one of the Brick Square cafes.</div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">~12:30</div><div class="timeline-body"><strong>Grab ekiben at Tokyo Station</strong> (Ekibenya Matsuri) for the N'EX ride. Pick something you didn't try Day 8.</div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">13:30</div><div class="timeline-body"><strong>N'EX to Narita Airport</strong> · ~60 min · reserved seat ticket only, buy at JR machine.</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">17:30</div><div class="timeline-body"><strong>NRT → BKK</strong> · home 22:15.</div></div>
+    </div>
+    <div class="note-line"><strong>Skipped on purpose.</strong> No Asakusa (already visited). Hamarikyu was Friday instead.</div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">Light breakfast + ekiben for the train.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Breakfast · primary</span></div>
+        <div class="food-name">Marunouchi Brick Square cafes</div>
+        <div class="food-cuisine">Western-style cafe breakfast — coffee + pastry + light sandwich. Sunday morning emptier than weekdays.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,200–1,800</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Quiet Sun AM</span>
+        </div>
+        <div class="food-note">Save your appetite for the ekiben — keep breakfast light. Coffee shops open 09:00 Sundays.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Marunouchi+Brick+Square" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Breakfast · Japanese alt</span></div>
+        <div class="food-name">Tsukemono + onigiri at Tokyo Station</div>
+        <div class="food-cuisine">Grab takeaway from a depachika basement counter — Echizen-ya rice balls, pickles, miso soup cup.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥800</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Eat on go</span>
+        </div>
+        <div class="food-note">If you want one last Japanese-style breakfast before flying.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tokyo+Station+depachika" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Lunch · for the N'EX</span></div>
+        <div class="food-name">Ekibenya Matsuri — pick #2</div>
+        <div class="food-cuisine">Pick a bento you didn't try Day 8. Aim for warm-served: Tochigi gyu-toro, Hokkaido kani-meshi.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Eat on train</span>
+        </div>
+        <div class="food-note">Buy 12:30 → eat on the 13:30 N'EX. Drink: a wakacha bottle from the platform vending.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Ekibenya+Matsuri+Tokyo+Station" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Backup · in case all else fails</span></div>
+        <div class="food-name">Narita Airport pre-flight</div>
+        <div class="food-cuisine">If you skip ekiben, T1 airside has Tonkatsu Inaba Wako (different from Wako BKK — relax), Tsujihan, and a Sushi-zanmai branch.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500–3,000</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">Last shot at Japanese food before the flight. Allow 90+ min before boarding so you don't rush.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/tokyo-station.jpg" alt="Tokyo Station Marunouchi side">
+        <div class="caption-area">
+          <div class="label">Tokyo Station</div>
+          <div class="title">Sunday morning, no people</div>
+          <div class="desc">The plaza in front of the red-brick facade is empty enough on a Sunday morning to get an unobstructed wide shot. The line for the photo spot is 0 before 10:00.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/narita-express.jpg" alt="Narita Express train">
+        <div class="caption-area">
+          <div class="label">N'EX</div>
+          <div class="title">Narita Express E259</div>
+          <div class="desc">Reserved-seat only. Buy from JR machine; passport required for foreigner round-trip discount tickets (if eligible). Trolley service on board.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Tokyu Stay → Tokyo Station</span>
+        <span class="title">Two routes from Ikebukuro</span>
+        <ol>
+          <li><strong>JR Yamanote</strong> direct: ~16 min, ¥210, every 3 min. Easy with bags via elevators</li>
+          <li><strong>Marunouchi Line</strong>: ~17 min, ¥210, direct to Tokyo Station (Marunouchi side). Closer to Ekibenya Matsuri</li>
+          <li>If bringing big bags: use station coin lockers, ~¥600 large size</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">N'EX boarding platform</span>
+        <span class="title">Underground at Tokyo Station</span>
+        <ol>
+          <li>Tokyo Station — follow signs for <strong>N'EX (Narita Express)</strong></li>
+          <li>Platform is <strong>underground, Platform 1-4 (Sobu line basement)</strong></li>
+          <li>Reserved seat — coach + seat number printed on ticket</li>
+          <li>Arrive 10 min before — N'EX is known for on-time departure</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for the road home</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line tip"><strong>Last-minute souvenirs.</strong> Tokyo Station gransta and Narita T1 airside both have full Japanese-confectionery selections. Don't panic-shop in Ikebukuro.</div>
+      <div class="note-line tip"><strong>Tax-free check.</strong> If you bought tax-free items, keep them in the carry-on with the receipt envelope unopened until past security.</div>
+      <div class="note-line warn"><strong>BKK arrival 22:15.</strong> Pick up car from Car Hub same night, drive home — or stay at an airport hotel and pick up Monday morning. Decide before you fly out.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day9.html" data-prev-day>
+      <span class="label">← Previous · Sat May 23</span>
+      <span class="title">Day 09 · West Tokyo</span>
+    </a>
+    <a class="next" href="index.html">
+      <span class="label">Back to the top</span>
+      <span class="title">Itinerary home →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 10.</div>
+  <p class="body-lg">Ekiben on the N'EX. The end credits, slowly.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 10 of 10 · また来ます</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

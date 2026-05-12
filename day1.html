@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1 · Departure — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 01<span class="sep">/</span>Departure</span>
+    <a class="btn-secondary btn-sm" href="index.html">All days</a>
+    <a class="btn-primary btn-sm" href="day2.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<!-- DAY HERO -->
+<header class="day-hero canvas">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Fri · May 15 · Day 01</div>
+    <h1 class="display-lg">Departure <span class="sub">Bangkok overnight</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Travel day</span>
+      <span class="chip">Park at Car Hub</span>
+      <span class="chip">฿1,433 parking</span>
+      <span class="chip">Overnight flight</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <!-- WEATHER -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Bangkok send-off.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon warm" aria-hidden="true">☀</span>
+        <div class="label">Bangkok · evening</div>
+        <div class="big">33°<span class="unit">/ 27°</span></div>
+        <div class="desc">Hot evening, low chance of rain. Wear something easy for the long flight; bring a light layer for the over-aircon at NRT arrival.</div>
+        <a class="external-link" href="https://www.tmd.go.th/en/" target="_blank" rel="noopener">Live forecast →</a>
+      </div>
+      <div class="weather-card">
+        <div class="label">Rain chance</div>
+        <div class="big">15<span class="unit">%</span></div>
+        <div class="desc">Tail end of dry season — short showers possible.</div>
+      </div>
+      <div class="weather-card">
+        <div class="label">Sunset BKK</div>
+        <div class="big">18:46</div>
+        <div class="desc">Drive to airport in daylight.</div>
+      </div>
+      <div class="weather-card">
+        <div class="label">Flight time</div>
+        <div class="big">~6 hr</div>
+        <div class="desc">23:35 dep · 07:45 NRT arrival.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Car Hub → Suvarnabhumi → Narita.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day1"></div>
+      <div class="map-legend">
+        <div><span class="swatch"></span>Ground · real road</div>
+        <div><span class="swatch flight"></span>Overnight flight · great-circle</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-num">1</div>
+        <div class="timeline-time">Day</div>
+        <div class="timeline-body"><strong>Park at Car Hub</strong> (฿1,433). Confirm the booking is for the full 10-day window. <span class="small">Tip: take a photo of the parking spot + receipt before transfer to the airport.</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">2</div>
+        <div class="timeline-time">20:00</div>
+        <div class="timeline-body"><strong>Suvarnabhumi Airport</strong> — Row L–M for most JP carriers. Bag drop closes 60 min before departure. <span class="small">If hungry: grab dinner landside before security — airside JP-bound terminal options are thin after 21:00.</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">3</div>
+        <div class="timeline-time">23:35</div>
+        <div class="timeline-body"><strong>BKK → NRT</strong> · overnight. Try to sleep — Day 2 starts driving in Japan. <span class="small">Set phone clocks to JST (+2h from Thailand) before boarding.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-FLIGHT CHECKLIST -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Don't forget</div>
+      <h2 class="display-lg section-title">Pre-flight checklist.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="station-exit-box">
+        <span class="label">Documents</span>
+        <span class="title">Passport + IDP + license</span>
+        <ol>
+          <li>Passport (6+ months validity)</li>
+          <li><strong>International Driving Permit</strong> (1949 Geneva) — Nippon won't accept Thai license alone</li>
+          <li>Thai driving license (must travel with the IDP)</li>
+          <li>Hotel reservation printouts (just in case at immigration)</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Money + Data</span>
+        <span class="title">Cash, IC card, SIM</span>
+        <ol>
+          <li>JPY cash for Akatsuki, Tonkatsu Marugo (cash-only)</li>
+          <li>Suica/Pasmo via Apple Wallet or physical card on arrival</li>
+          <li>Travel eSIM activated before takeoff</li>
+          <li>Credit cards w/ no FX fee · backup Visa/Mastercard</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">For Fuji mornings</span>
+        <span class="title">Warm layer + umbrella</span>
+        <ol>
+          <li>Light puffer or fleece (Fuji AM ~7°C)</li>
+          <li>Compact umbrella (May = 10 rainy days expected)</li>
+          <li>Slip-on shoes for shrines + teamLab Planets (Day 7 you'll get wet feet)</li>
+          <li>Camera + power bank + spare SD</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREV/NEXT -->
+  <div class="day-nav reveal">
+    <a class="disabled" aria-disabled="true">
+      <span class="label">← Previous</span>
+      <span class="title">— Trip begins here</span>
+    </a>
+    <a class="next" href="day2.html" data-next-day>
+      <span class="label">Next · Sat May 16</span>
+      <span class="title">Day 02 · Arrival + Fuji North →</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer container">
+  <div class="footer-wordmark">Day 01.</div>
+  <p class="body-lg">Bags packed. Engine off in Bangkok, sunrise over Narita in the morning.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 01 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

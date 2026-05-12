@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 5 · Old Tokyo — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 05<span class="sep">/</span>Old Tokyo</span>
+    <a class="btn-secondary btn-sm" href="day4.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day6.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero canvas">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Tue · May 19 · Day 05</div>
+    <h1 class="display-lg">Old Tokyo <span class="sub">Yanaka → Nezu → Ueno → Akihabara</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Locked plan</span>
+      <span class="chip">Walking day</span>
+      <span class="chip">Cash for Marugo</span>
+      <span class="chip">JR + Chiyoda Line</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Tokyo eases into late spring.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">Tokyo · day</div>
+        <div class="big">24°<span class="unit">/ 16°</span></div>
+        <div class="desc">Comfortable city walking weather. Mid-week, lighter Yanaka crowds than weekends. Pack the compact umbrella.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/16/4410/13101/" target="_blank" rel="noopener">tenki.jp Tokyo →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">35<span class="unit">%</span></div>
+        <div class="desc">Passing shower possible PM.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↑</span>
+        <div class="label">Sunrise</div>
+        <div class="big">04:32</div>
+        <div class="desc">Yanaka best before 10:00.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">↓</span>
+        <div class="label">Sunset</div>
+        <div class="big">18:40</div>
+        <div class="desc">Yuyake Dandan = "sunset stairs" — get there ~17:30.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Pre-war Tokyo, walked north to south.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day5"></div>
+      <div class="map-legend"><div><span class="swatch"></span>Walking · real streets via OSRM</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>Yanaka Ginza</strong> — the old shotengai shopping street. Try mentaiko korokke, menchi-katsu from the queues. Free-roaming cats on rooftops.</div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>Yuyake Dandan</strong> — the famous "sunset stairs" overlooking the shotengai. Photo from the top.</div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">Late AM</div><div class="timeline-body"><strong>Nezu Shrine</strong> — vermillion torii tunnel + azalea garden (May = late azaleas, some color still). Lesser-crowded than Fushimi Inari.</div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">Lunch</div><div class="timeline-body"><strong>Kamachiku</strong> (udon near Nezu) — handmade kamatama udon in a converted warehouse.</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">Afternoon</div><div class="timeline-body"><strong>Ueno Park</strong> · Yushima Tenjin Shrine · <strong>Ameya-Yokocho</strong> market (under the JR tracks).</div></div>
+      <div class="timeline-item"><div class="timeline-num">6</div><div class="timeline-time">Evening</div><div class="timeline-body"><strong>Akihabara</strong> · 2k540 Aki-Oka Artisan archways — craft studios under the elevated JR line. Quieter than the main electronics streets.</div></div>
+      <div class="timeline-item"><div class="timeline-num">7</div><div class="timeline-time">Dinner</div><div class="timeline-body"><strong>Tonkatsu Marugo</strong> — walk-in queue ~30 min, cash only, ~¥2–3k. See food section below for fallbacks.</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">Marugo or one of two walk-in alts.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Lunch · primary</span></div>
+        <div class="food-name">Kamachiku (Nezu)</div>
+        <div class="food-cuisine">Handmade kamatama udon — soft-cooked egg + freshly cut udon. Heritage building (former pawn shop).</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500</span>
+          <span class="food-stat">Walk-in queues</span>
+          <span class="food-stat">Open 11:30</span>
+        </div>
+        <div class="food-note">Arrive at 11:30 sharp or after 14:00 to skip the worst of the queue. No reservations.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Kamachiku+Nezu" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · alt</span></div>
+        <div class="food-name">Hantei (Nezu)</div>
+        <div class="food-cuisine">Kushiage course in a 100-year wooden townhouse. Three-skewer-set increments, eat until you say stop.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,800 lunch course</span>
+          <span class="food-stat">Walk-in midday</span>
+        </div>
+        <div class="food-note">A treat alt if Kamachiku's queue is brutal. Reserve dinners; walk-ins easier at lunch.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Hantei+Nezu" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · primary</span></div>
+        <div class="food-name">Tonkatsu Marugo (Akihabara)</div>
+        <div class="food-cuisine">Cult-favorite tonkatsu — low-temperature fry, rosu cut, shredded cabbage refills. <strong>Cash only.</strong></div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,500</span>
+          <span class="food-stat">Walk-in 30+ min</span>
+          <span class="food-stat">Single location</span>
+        </div>
+        <div class="food-note">Get in line by 17:30 for first seating. Pork-curry rice is also a thing if you can't decide.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tonkatsu+Marugo+Akihabara" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt 1</span></div>
+        <div class="food-name">Kanda Yabu Soba</div>
+        <div class="food-cuisine">Est. 1880 — one of Tokyo's "Big 3" historic soba shops. Hand-cut seiro soba + tempura.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500–3,000</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">8 min walk from Akihabara</span>
+        </div>
+        <div class="food-note">Order is sung out loud by the staff at the door — an Edo-era tradition still going. Single location only.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Kanda+Yabu+Soba" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt 2</span></div>
+        <div class="food-name">Izu'ei Honten (Ueno)</div>
+        <div class="food-cuisine">Unagi specialist since 1733. Una-don, una-juu sets. Tatami seating. One Yamanote stop back from Akihabara.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-tight">~¥3,000–4,500</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Historic</span>
+        </div>
+        <div class="food-note">Hits the budget cap but stays inside. Worth it if Marugo's queue is impossible.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Izuei+Honten+Ueno" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/nezu-shrine.jpg" alt="Nezu Shrine torii tunnel">
+        <div class="caption-area">
+          <div class="label">Nezu Shrine</div>
+          <div class="title">Vermillion torii corridor</div>
+          <div class="desc">Walk through the senbon-torii from the bottom up — fewer people in the frame as you climb. Azalea field below is the May highlight.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/yanaka-ginza.jpg" alt="Yanaka Ginza street">
+        <div class="caption-area">
+          <div class="label">Yanaka Ginza</div>
+          <div class="title">The shotengai you've seen in films</div>
+          <div class="desc">Walk it from the Yuyake Dandan stairs end. Try the mentaiko korokke from Niku-no-Suzuki — line moves in 5 min.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Nippori Station for Yanaka</span>
+        <span class="title">Right exit for the stairs</span>
+        <ol>
+          <li>JR Yamanote / Keisei Line to <strong>Nippori Station</strong></li>
+          <li>Take the <strong>West Exit</strong> (Nishi-guchi)</li>
+          <li>Cross the road, walk 5 min north — Yuyake Dandan is on your left</li>
+          <li>The stairs lead directly down to Yanaka Ginza</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Akihabara for Marugo</span>
+        <span class="title">Don't get lost in the otaku side</span>
+        <ol>
+          <li>JR <strong>Akihabara Station</strong>, take the <strong>Showa-dori Exit</strong> (not Electric Town)</li>
+          <li>Cross under the elevated tracks, head south on Showa-dori</li>
+          <li>Marugo is a small storefront with a vertical sign — easy to walk past</li>
+          <li>Cash-only — there's a Seven-Eleven ATM 50m back if you forgot</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line tip"><strong>Yanaka cat-watch.</strong> The neighborhood is famously cat-friendly. Look up — they hang on shop awnings and signage rather than at street level.</div>
+      <div class="note-line tip"><strong>Time the soba "sing-out" at Kanda Yabu.</strong> Stand by the front podium for 30 seconds to hear the staff chant the order — it's the show.</div>
+      <div class="note-line warn"><strong>Marugo has odd hours.</strong> Closed Sundays + irregular Mondays. Double-check before queueing.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day4.html" data-prev-day>
+      <span class="label">← Previous · Mon May 18</span>
+      <span class="title">Day 04 · Hakone Day</span>
+    </a>
+    <a class="next" href="day6.html" data-next-day>
+      <span class="label">Next · Wed May 20</span>
+      <span class="title">Day 06 · Kamakura →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 05.</div>
+  <p class="body-lg">Edo-era streets in the morning, neon-lit fryers at night.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 05 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

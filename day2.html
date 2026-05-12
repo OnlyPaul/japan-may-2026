@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 · Arrival + Fuji North — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 02<span class="sep">/</span>Arrival + Fuji</span>
+    <a class="btn-secondary btn-sm" href="day1.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day3.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero cream">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Sat · May 16 · Day 02</div>
+    <h1 class="display-lg">Arrival + Fuji North <span class="sub">Lake Kawaguchi</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Simplified plan</span>
+      <span class="chip ok">Fuji 0% clouds</span>
+      <span class="chip">Drive day</span>
+      <span class="chip warn">IDP needed at pickup</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <!-- WEATHER -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Cool, clear, golden.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon" aria-hidden="true">☀</span>
+        <div class="label">Lake Kawaguchi · day</div>
+        <div class="big">19°<span class="unit">/ 7°</span></div>
+        <div class="desc"><strong>Excellent Fuji visibility</strong> expected — 0% clouds, 30+ km. Morning at the lake will be cold; bring the warm layer you packed for Day 1.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/17/4002/19423/" target="_blank" rel="noopener">tenki.jp Kawaguchiko →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon partly" aria-hidden="true">☁</span>
+        <div class="label">Rain chance</div>
+        <div class="big">10<span class="unit">%</span></div>
+        <div class="desc">Stable high-pressure window.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↑</span>
+        <div class="label">Sunrise</div>
+        <div class="big">04:35</div>
+        <div class="desc">You'll land after this.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">↓</span>
+        <div class="label">Golden hour</div>
+        <div class="big">17:50</div>
+        <div class="desc">Fuji Oishi Park glow target.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Narita → Lake Yamanaka → Oshino Hakkai → Oishi Park.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day2"></div>
+      <div class="map-legend"><div><span class="swatch"></span>Driving · real road via OSRM</div></div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">07:45</div><div class="timeline-body"><strong>Land NRT</strong> · clear immigration 45–60 min. Pick up Suica from machine if not already. <span class="small">Restroom + repack daypack before walking to Nippon office.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">~09:30</div><div class="timeline-body"><strong>Pick up car at Nippon</strong> — present IDP + Thai license + passport. Pre-program both lake routes into navi. <span class="small">Drive ~2 hr to Fuji Five Lakes; tolls accept ETC card or cash.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">~12:00</div><div class="timeline-body"><strong>Lake Yamanaka</strong> — quick photo stop on the east side. <span class="small">If tired, skip and head straight to Oshino Hakkai.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">13:00</div><div class="timeline-body"><strong>Oshino Hakkai</strong> — eight spring ponds, 1.5–2 hr. Lunch nearby (hoto noodles).</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">16:00</div><div class="timeline-body"><strong>Fuji Oishi Park</strong> — golden hour for Fuji + Kawaguchiko reflection. <span class="small">Park in the upper lot; walk down the lavender slope.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">6</div><div class="timeline-time">~17:15</div><div class="timeline-body"><strong>Lawson Kawaguchiko</strong> — drive-past for the Fuji-behind-Lawson shot if light still works. <span class="small">Don't block the street; locals are tired of tourists.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">7</div><div class="timeline-time">~17:30</div><div class="timeline-body"><strong>Check in · Fujikawaguchiko Resort Hotel</strong>. Dinner at hotel or short walk for hoto if not eaten earlier.</div></div>
+    </div>
+    <div class="note-line"><strong>Cut from prior plan.</strong> Hananomiyako Park (tulips end mid-May, fields sparse) and Kogamasao (jet lag). Saving energy for the Fuji golden hour.</div>
+  </section>
+
+  <!-- FOOD -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">Local picks + walk-in fallbacks.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Lunch · primary</span></div>
+        <div class="food-name">Houtou Fudou (Kawaguchiko branch)</div>
+        <div class="food-cuisine">Hoto noodles — Yamanashi miso stew with thick handmade noodles + Fuji-area vegetables. Walk-in friendly.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">5 min from Oshino</span>
+        </div>
+        <div class="food-note">The igloo-shaped one is the icon. Big bowls, fast service, line moves quickly even at peak.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Houtou+Fudou+Kawaguchiko" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · alt 1</span></div>
+        <div class="food-name">Sanrokuen</div>
+        <div class="food-cuisine">Robatayaki — grill-your-own seafood &amp; mountain vegetables at hori-gotatsu sunken tables. Single location.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-tight">~¥3,000–4,000</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Atmospheric</span>
+        </div>
+        <div class="food-note">Pricier but unforgettable. Sit at the irori; charcoal-cook your own. Budget-friendly if you skip drinks.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Sanrokuen+Kawaguchiko" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · alt 2</span></div>
+        <div class="food-name">Sakuratei (桜亭)</div>
+        <div class="food-cuisine">Set-meal teishoku — grilled fish, tempura, rice + miso, all in one tray. Quiet, mom-and-pop pace.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,200–1,800</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Quick</span>
+        </div>
+        <div class="food-note">Solid backup if Houtou Fudou has a tour-bus queue.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Sakuratei+Kawaguchiko" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · primary</span></div>
+        <div class="food-name">Fujikawaguchiko Resort Hotel kaiseki</div>
+        <div class="food-cuisine">Hotel multi-course Japanese set. Easiest after a long travel day — your booking probably includes dinner.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">In-package</span>
+          <span class="food-stat">Zero walking</span>
+        </div>
+        <div class="food-note">If meal not included, walk 5 min to Hoto Kosaku for a second-night hoto.</div>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt</span></div>
+        <div class="food-name">Hoto Kosaku</div>
+        <div class="food-cuisine">Hoto specialist with thatched-roof main house. More refined than Fudou, slower pace.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,000</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">Closes ~19:30 — get there by 19:00 to be safe.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Hoto+Kosaku" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL NOTES -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/oshino-hakkai.jpg" alt="Oshino Hakkai with Mt Fuji">
+        <div class="caption-area">
+          <div class="label">Oshino Hakkai</div>
+          <div class="title">Frame Fuji behind the thatched roofs</div>
+          <div class="desc">Stand near the largest pond (Wakuike). The reflection of Fuji works only when the wind is dead-calm — usually before 13:00.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/fuji-oishi-park.jpg" alt="Mt Fuji from Oishi Park">
+        <div class="caption-area">
+          <div class="label">Fuji Oishi Park</div>
+          <div class="title">Lavender slope viewpoint</div>
+          <div class="desc">Park in the upper lot and walk down. The classic shot is from the middle terrace — kochia + lavender frame the lake.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Nippon NRT pickup</span>
+        <span class="title">Where to find the desk after immigration</span>
+        <ol>
+          <li>Exit immigration, head down to <strong>1F Arrival Lobby</strong></li>
+          <li>Walk to <strong>Counter Group D</strong> (rental car shuttles)</li>
+          <li>Take the <strong>Nippon Rent-a-Car shuttle</strong> — free, every 10 min</li>
+          <li>5-min ride to the office; full pickup ~30 min including paperwork</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Driving heads-up</span>
+        <span class="title">Right-hand drive · what surprises you</span>
+        <ol>
+          <li>Left-side traffic — same as Thailand, easier transition than for EU/US drivers</li>
+          <li>ETC card included in rental — toll gates open automatically</li>
+          <li>Stop fully at all unmarked intersections; cameras everywhere</li>
+          <li>Speed limits are LOW — 60 km/h is highway, 40 km/h is normal road</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line tip"><strong>Fight jet lag aggressively.</strong> Sunlight after landing, no nap before 16:00. Get to bed at the hotel by 22:00.</div>
+      <div class="note-line tip"><strong>Photograph the parking spot.</strong> Lawson Kawaguchiko area has multiple identical convenience-store lots. Easy to forget where you parked.</div>
+      <div class="note-line warn"><strong>Fuji shy.</strong> Even with a perfect forecast, the summit can disappear behind a thin cloud cap for 20–40 min at a time. Don't panic — wait it out.</div>
+    </div>
+  </section>
+
+  <!-- PREV/NEXT -->
+  <div class="day-nav reveal">
+    <a href="day1.html" data-prev-day>
+      <span class="label">← Previous · Fri May 15</span>
+      <span class="title">Day 01 · Departure</span>
+    </a>
+    <a class="next" href="day3.html" data-next-day>
+      <span class="label">Next · Sun May 17</span>
+      <span class="title">Day 03 · Fuji West Loop →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 02.</div>
+  <p class="body-lg">First Japanese ground. First sight of Fuji. First hoto noodle.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 02 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

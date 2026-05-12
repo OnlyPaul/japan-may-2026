@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 6 · Kamakura — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 06<span class="sep">/</span>Kamakura</span>
+    <a class="btn-secondary btn-sm" href="day5.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day7.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero coral">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Wed · May 20 · Day 06</div>
+    <h1 class="display-lg">Kamakura <span class="sub">day trip</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip solid">Reserved lunch</span>
+      <span class="chip sakura">Akatsuki = budget exempt</span>
+      <span class="chip">Shōnan-Shinjuku direct</span>
+      <span class="chip">No Enoshima</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Coastal Kamakura.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">Kamakura · day</div>
+        <div class="big">23°<span class="unit">/ 15°</span></div>
+        <div class="desc">Slightly cooler than Tokyo with sea breeze. Breeze can pick up by Hasedera viewpoint — light jacket if you're sensitive.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/17/4610/14204/" target="_blank" rel="noopener">tenki.jp Kamakura →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">30<span class="unit">%</span></div>
+        <div class="desc">Coastal showers more likely PM.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">~</span>
+        <div class="label">UV index</div>
+        <div class="big">7</div>
+        <div class="desc">Open sky at Great Buddha — bring SPF.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">↓</span>
+        <div class="label">Tide low</div>
+        <div class="big">15:30</div>
+        <div class="desc">Beach walkable mid-afternoon.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Tokyo → Kamakura → Hase loop, by Enoden.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day6"></div>
+      <div class="map-legend">
+        <div><span class="swatch dashed"></span>JR (Shōnan-Shinjuku or Yokosuka) + Enoden</div>
+        <div><span class="swatch"></span>Walking from Hase Station</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>JR Shōnan-Shinjuku Line direct from Ikebukuro</strong> (~60 min, no transfer, ¥950) — also stops at Shinjuku &amp; Shibuya. The JR Yokosuka Line from Tokyo Station is equivalent (~60 min) — both terminate at Kamakura Station, where you transfer to the <strong>Enoden</strong> for Hase. Buy a 1-day Enoden pass if you'll loop the coast. <span class="small">From Akihabara there's no direct line — you'd hop Yamanote 1 stop to Tokyo Stn first (+10 min).</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>Great Buddha (Kotoku-in)</strong> — bronze daibutsu, ¥300 entry; +¥50 to step inside.</div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>Hasedera Temple</strong> — 11m-tall wooden Kannon, hydrangea path (early bloom in May), upper-terrace ocean view.</div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">Lunch</div><div class="timeline-body"><strong>Akatsuki</strong> (aged bluefin tuna). Reservation only. 3-min walk from Hase Station via Enoden. Budget exempt.</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">Afternoon</div><div class="timeline-body"><strong>Komachi-dori</strong> shopping street + Tsurugaoka Hachimangu approach.</div></div>
+      <div class="timeline-item"><div class="timeline-num">6</div><div class="timeline-time">Afternoon</div><div class="timeline-body"><strong>Koshigoe Rakko Park</strong> or <strong>Shichirigahama Beach</strong> — coast walk with Fuji on the horizon (if clear).</div></div>
+    </div>
+    <div class="note-line"><strong>Correction from prior plan.</strong> The original document had Yurikamome / Shijo-Mae directions — those go to Toyosu, not Kamakura. Use the <strong>Enoden line to Hase</strong>. <strong>No Enoshima</strong> today (energy budget).</div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">The reserved lunch + Komachi walk-ins.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card exempt">
+        <div class="food-card-head"><span class="food-meal">Lunch · primary (reserved)</span></div>
+        <div class="food-name">Akatsuki</div>
+        <div class="food-cuisine">Aged bluefin tuna omakase. Sea-aged maguro, multiple cuts in progression, single-counter intimate setting.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-exempt">Budget exempt</span>
+          <span class="food-stat">Reservation only</span>
+          <span class="food-stat">3 min from Hase Stn</span>
+        </div>
+        <div class="food-note">The headline meal of the trip. Confirm reservation 24 hr ahead. Cash + card both accepted; tip not expected.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Akatsuki+Kamakura+Hase" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Snack · Komachi-dori</span></div>
+        <div class="food-name">Toshimaya Hatosabure</div>
+        <div class="food-cuisine">Iconic dove-shaped butter cookies — local since 1894. Buy a small box; takes the train ride home easily.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥800 small box</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">Souvenir tier — not a meal. Pair with a coffee from Cafe Vivement Dimanche down the street.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Toshimaya+Kamakura" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · back in Ikebukuro</span></div>
+        <div class="food-name">Tonkatsu Hasegawa (Ikebukuro)</div>
+        <div class="food-cuisine">Single-location tonkatsu — rosu, hire, menchi-katsu sets. Crisp cabbage refills, miso soup with pork.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,800</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">8 min from hotel</span>
+        </div>
+        <div class="food-note">Easy after a long out-and-back day. If you're full from Akatsuki, skip and grab onigiri at Tokyu Stay's nearby Lawson.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tonkatsu+Hasegawa+Ikebukuro" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · alt</span></div>
+        <div class="food-name">Sushi Tokami (Ikebukuro branch)</div>
+        <div class="food-cuisine">Light sushi sets — perfect if you only need a few pieces post-Akatsuki. Walk-in counter seats.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,500</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">Stay light — your stomach's still busy with bluefin.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Sushi+Tokami+Ikebukuro" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/great-buddha.jpg" alt="Great Buddha of Kamakura">
+        <div class="caption-area">
+          <div class="label">Kotoku-in</div>
+          <div class="title">The Great Buddha of Kamakura</div>
+          <div class="desc">Cast 1252. The temple roof that used to cover it washed away in 1495. Step inside for ¥50 — hollow, oddly intimate.</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/hase-station.jpg" alt="Enoden Hase Station">
+        <div class="caption-area">
+          <div class="label">Hase Station (Enoden)</div>
+          <div class="title">Tiny coastal line</div>
+          <div class="desc">The Enoden runs through people's gardens at points. 4-car trains, ¥260 single. Buy the 1-day pass if you'll do Hase + Inamuragasaki.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Hase Station → Akatsuki</span>
+        <span class="title">3-minute walk, easy to find</span>
+        <ol>
+          <li>Exit Hase Station (Enoden) — only one exit, on the south side</li>
+          <li>Turn <strong>right</strong> onto the main road heading toward Kotoku-in</li>
+          <li>Walk ~100m — Akatsuki is on the left, small sign-only entrance</li>
+          <li>Arrive 5 min early; the reservation slot is strict</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Kamakura Station transfer</span>
+        <span class="title">Switching to the Enoden</span>
+        <ol>
+          <li>Get off the JR train at <strong>Kamakura Station</strong> (both Shōnan-Shinjuku &amp; Yokosuka lines terminate here)</li>
+          <li>Exit the JR ticket gates, walk through the small square</li>
+          <li><strong>Enoden gates are immediately to the left</strong> — buy a 1-day pass from the machine (¥800)</li>
+          <li>4 stops to Hase — about 5 min, single platform</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line warn"><strong>Akatsuki reservation = sacred.</strong> Don't be late. If JR is delayed, message ahead via the booking system. Worst case, take a taxi from Kamakura Stn to Hase (¥1,500, 8 min).</div>
+      <div class="note-line tip"><strong>Komachi-dori snacking strategy.</strong> Skip the food after Akatsuki. Just window shop, grab a Toshimaya box, head back.</div>
+      <div class="note-line tip"><strong>Fuji from Shichirigahama.</strong> Clear days only. Sunset alignment is best September–March; in May the angle is off, but still a nice silhouette.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day5.html" data-prev-day>
+      <span class="label">← Previous · Tue May 19</span>
+      <span class="title">Day 05 · Old Tokyo</span>
+    </a>
+    <a class="next" href="day7.html" data-next-day>
+      <span class="label">Next · Thu May 21</span>
+      <span class="title">Day 07 · Bay &amp; Markets →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 06.</div>
+  <p class="body-lg">Old shoguns, older Buddha, fresher bluefin.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 06 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

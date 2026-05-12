@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Trip — May 15–24, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand & Accent */
+    --primary: #1A1A1A;
+    --canvas: #FFFFFF;
+    --inverse-canvas: #1A1A1A;
+    --accent-sakura: #F8C8D5;
+
+    /* Surface */
+    --surface-soft: #F4F2EE;
+    --hairline: #E4E1DB;
+    --hairline-soft: #EFECE6;
+
+    /* Color Blocks */
+    --block-lime: #DDEE5E;
+    --block-lilac: #D9D6FE;
+    --block-cream: #F2EAD5;
+    --block-mint: #C5E9CC;
+    --block-pink: #F9D6D4;
+    --block-coral: #FFB199;
+    --block-navy: #0E1E4A;
+
+    /* Text */
+    --ink: #1A1A1A;
+    --inverse-ink: #FFFFFF;
+
+    /* Semantic */
+    --semantic-success: #2EA851;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; }
+  body {
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 320;
+    line-height: 1.45;
+    letter-spacing: -0.26px;
+    font-feature-settings: "kern" 1, "cv11" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* TYPOGRAPHY ROLES */
+  .display-xl {
+    font-size: clamp(48px, 8.4vw, 86px);
+    font-weight: 340;
+    line-height: 1.00;
+    letter-spacing: -1.72px;
+  }
+  .display-lg {
+    font-size: clamp(40px, 5.4vw, 64px);
+    font-weight: 340;
+    line-height: 1.10;
+    letter-spacing: -0.96px;
+  }
+  .headline {
+    font-size: 26px;
+    font-weight: 540;
+    line-height: 1.35;
+    letter-spacing: -0.26px;
+  }
+  .subhead {
+    font-size: 26px;
+    font-weight: 340;
+    line-height: 1.35;
+    letter-spacing: -0.26px;
+  }
+  .card-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.30;
+    letter-spacing: -0.20px;
+  }
+  .body-lg {
+    font-size: 20px;
+    font-weight: 330;
+    line-height: 1.40;
+    letter-spacing: -0.14px;
+  }
+  .body {
+    font-size: 18px;
+    font-weight: 320;
+    line-height: 1.45;
+    letter-spacing: -0.26px;
+  }
+  .body-sm {
+    font-size: 16px;
+    font-weight: 330;
+    line-height: 1.45;
+    letter-spacing: -0.14px;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.30;
+    letter-spacing: 0.54px;
+    text-transform: uppercase;
+  }
+  .caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.00;
+    letter-spacing: 0.60px;
+    text-transform: uppercase;
+  }
+
+  /* TOP NAV */
+  .top-nav {
+    height: 56px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    background: var(--canvas);
+    z-index: 100;
+  }
+  .wordmark {
+    font-size: 22px;
+    font-weight: 540;
+    letter-spacing: -0.4px;
+  }
+  .nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* PILL BUTTONS */
+  .btn-primary, .btn-secondary {
+    font-size: 20px;
+    font-weight: 480;
+    line-height: 1.40;
+    letter-spacing: -0.10px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: transform 120ms ease;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--inverse-ink);
+    padding: 10px 20px;
+  }
+  .btn-secondary {
+    background: var(--canvas);
+    color: var(--ink);
+    padding: 8px 18px 10px;
+  }
+  .btn-primary:hover, .btn-secondary:hover { transform: scale(0.98); }
+  .btn-sm { font-size: 14px; padding: 6px 14px; }
+
+  /* MARQUEE */
+  .marquee {
+    background: var(--inverse-canvas);
+    color: var(--inverse-ink);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.60px;
+    text-transform: uppercase;
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 32px;
+    padding-left: 32px;
+    animation: marquee 40s linear infinite;
+  }
+  .marquee-track span { flex: 0 0 auto; }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 48px 48px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 0 0 96px;
+  }
+  .hero .eyebrow { margin-bottom: 32px; color: var(--ink); }
+  .hero h1 {
+    max-width: 1000px;
+    margin-bottom: 32px;
+  }
+  .hero h1 .em { font-weight: 540; }
+  .hero .lede {
+    max-width: 640px;
+  }
+  .meta-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+  }
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.60px;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .meta-value {
+    font-size: 18px;
+    font-weight: 480;
+    letter-spacing: -0.14px;
+    line-height: 1.30;
+  }
+
+  /* SECTIONS */
+  section { margin-bottom: 96px; }
+  .section-head {
+    margin-bottom: 48px;
+  }
+  .section-head .eyebrow {
+    margin-bottom: 24px;
+  }
+  .section-title {
+    max-width: 900px;
+  }
+
+  /* COLOR BLOCKS */
+  .color-block {
+    border-radius: 24px;
+    padding: 48px;
+  }
+  .color-block.lime { background: var(--block-lime); }
+  .color-block.lilac { background: var(--block-lilac); }
+  .color-block.cream { background: var(--block-cream); }
+  .color-block.mint { background: var(--block-mint); }
+  .color-block.pink { background: var(--block-pink); }
+  .color-block.coral { background: var(--block-coral); }
+  .color-block.navy {
+    background: var(--block-navy);
+    color: var(--inverse-ink);
+  }
+  .color-block.navy .eyebrow,
+  .color-block.navy .meta-label,
+  .color-block.navy .caption { color: var(--inverse-ink); }
+
+  /* CRITICAL STATUS */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .status-card {
+    background: var(--canvas);
+    border-radius: 24px;
+    padding: 24px;
+  }
+  .status-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.50px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    background: var(--surface-soft);
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .status-pill.ok { background: var(--block-mint); }
+  .status-pill.alert { background: var(--accent-sakura); }
+  .status-pill.info { background: var(--block-lilac); }
+  .status-pill.note { background: var(--block-cream); }
+  .status-card h3 {
+    font-size: 22px;
+    font-weight: 540;
+    line-height: 1.25;
+    letter-spacing: -0.20px;
+    margin-bottom: 12px;
+  }
+  .status-card p {
+    font-size: 16px;
+    font-weight: 330;
+    line-height: 1.50;
+    letter-spacing: -0.14px;
+  }
+  .status-card p strong { font-weight: 540; }
+
+  /* HOTELS */
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .hotel-card {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: 24px;
+    padding: 32px;
+  }
+  .hotel-dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.60px;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .hotel-name {
+    font-size: 24px;
+    font-weight: 540;
+    line-height: 1.20;
+    letter-spacing: -0.30px;
+    margin-bottom: 8px;
+  }
+  .hotel-loc {
+    font-size: 16px;
+    font-weight: 330;
+    color: var(--ink);
+  }
+
+  /* DAY CARDS */
+  .day {
+    border-radius: 24px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .day.canvas {
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+  }
+  .day.cream { background: var(--block-cream); }
+  .day.lilac { background: var(--block-lilac); }
+  .day.coral { background: var(--block-coral); }
+  .day.mint { background: var(--block-mint); }
+  .day.pink { background: var(--block-pink); }
+  .day.navy { background: var(--block-navy); color: var(--inverse-ink); }
+  .day-inner {
+    padding: 36px 40px;
+  }
+  .day-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .day-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.60px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .day.canvas .day-meta,
+  .day.cream .day-meta,
+  .day.lilac .day-meta,
+  .day.coral .day-meta,
+  .day.mint .day-meta,
+  .day.pink .day-meta { color: var(--ink); }
+  .day.navy .day-meta { color: var(--inverse-ink); }
+  .day-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 540;
+    line-height: 1.20;
+    letter-spacing: -0.40px;
+  }
+  .day-title .sub {
+    font-weight: 340;
+    opacity: 0.7;
+    margin-left: 6px;
+    font-size: 0.78em;
+  }
+  .day-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.50px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: var(--canvas);
+    color: var(--ink);
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .slot {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(26, 26, 26, 0.10);
+  }
+  .day.navy .slot { border-top-color: rgba(255, 255, 255, 0.14); }
+  .day.canvas .slot { border-top-color: var(--hairline-soft); }
+  .slot:first-child { border-top: none; padding-top: 4px; }
+  .slot-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.50px;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .slot-body {
+    font-size: 17px;
+    font-weight: 330;
+    line-height: 1.50;
+    letter-spacing: -0.14px;
+  }
+  .slot-body strong { font-weight: 540; }
+
+  .note-line {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(26, 26, 26, 0.06);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 330;
+    line-height: 1.55;
+    letter-spacing: -0.10px;
+  }
+  .day.canvas .note-line { background: var(--surface-soft); }
+  .day.navy .note-line { background: rgba(255, 255, 255, 0.08); }
+  .note-line strong { font-weight: 540; }
+
+  /* BOOKINGS */
+  .bookings-list {
+    margin-top: 16px;
+  }
+  .booking {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.18);
+  }
+  .booking:first-of-type { padding-top: 8px; }
+  .booking:last-of-type { border-bottom: none; padding-bottom: 8px; }
+  .booking-num {
+    font-size: 56px;
+    font-weight: 340;
+    line-height: 0.95;
+    letter-spacing: -1.20px;
+  }
+  .booking-title {
+    font-size: 22px;
+    font-weight: 540;
+    line-height: 1.30;
+    letter-spacing: -0.30px;
+    margin-bottom: 10px;
+  }
+  .booking-body {
+    font-size: 17px;
+    font-weight: 330;
+    line-height: 1.50;
+    letter-spacing: -0.14px;
+    max-width: 760px;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--hairline);
+    padding: 96px 0 32px;
+  }
+  .footer-wordmark {
+    font-size: clamp(56px, 9vw, 96px);
+    font-weight: 540;
+    letter-spacing: -1.92px;
+    line-height: 0.95;
+    margin-bottom: 32px;
+  }
+  .footer p {
+    max-width: 520px;
+    margin-bottom: 64px;
+  }
+  .footer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline-soft);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .top-nav { padding: 0 24px; }
+    .container { padding: 48px 24px; }
+  }
+  @media (max-width: 768px) {
+    .top-nav .nav-actions .btn-secondary { display: none; }
+    .color-block {
+      border-radius: 0;
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 40px 24px;
+    }
+    .day {
+      border-radius: 0;
+      margin-left: -24px;
+      margin-right: -24px;
+      border-left: none;
+      border-right: none;
+    }
+    .day-inner { padding: 28px 24px; }
+    .slot { grid-template-columns: 1fr; gap: 6px; }
+    .slot-time { padding-top: 0; }
+    .booking { grid-template-columns: 48px 1fr; gap: 16px; }
+    .booking-num { font-size: 36px; }
+    .meta-row { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="wordmark">Japan ’26</div>
+  <div class="nav-actions">
+    <a class="btn-secondary btn-sm" href="#bookings">Bookings</a>
+    <a class="btn-primary btn-sm" href="#days">View itinerary</a>
+  </div>
+</nav>
+
+<!-- MARQUEE STRIP -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Tokyo</span><span>·</span><span>Lake Kawaguchi</span><span>·</span><span>Fujinomiya</span><span>·</span><span>Hakone</span><span>·</span><span>Kamakura</span><span>·</span><span>Ikebukuro</span><span>·</span><span>10 Days</span><span>·</span>
+    <span>Tokyo</span><span>·</span><span>Lake Kawaguchi</span><span>·</span><span>Fujinomiya</span><span>·</span><span>Hakone</span><span>·</span><span>Kamakura</span><span>·</span><span>Ikebukuro</span><span>·</span><span>10 Days</span><span>·</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">Itinerary Review · Revision 06</div>
+    <h1 class="display-xl">Japan, in <span class="em">ten days</span>.</h1>
+    <p class="body-lg lede">Tokyo, Mount Fuji, Hakone, and Kamakura — a working summary of the plan, what's been revised, and what still needs a decision.</p>
+    <div class="meta-row">
+      <div>
+        <span class="meta-label">Dates</span>
+        <span class="meta-value">May 15 – 24, 2026</span>
+      </div>
+      <div>
+        <span class="meta-label">Outbound</span>
+        <span class="meta-value">BKK → NRT · 23:35</span>
+      </div>
+      <div>
+        <span class="meta-label">Return</span>
+        <span class="meta-value">NRT → BKK · 17:30</span>
+      </div>
+      <div>
+        <span class="meta-label">Car rental</span>
+        <span class="meta-value">May 16 – 18 · Nippon</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01 · CRITICAL STATUS -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">01 · Critical Status</div>
+      <h2 class="display-lg section-title">Four things to keep in mind.</h2>
+    </div>
+    <div class="color-block lime">
+      <div class="status-grid">
+        <div class="status-card">
+          <span class="status-pill ok">Fuji visibility</span>
+          <h3>Excellent forecast.</h3>
+          <p>May 16 &amp; 17 mornings <strong>0% clouds, 30+ km visibility</strong>. Your photo plan should pay off.</p>
+        </div>
+        <div class="status-card">
+          <span class="status-pill alert">Meal budget</span>
+          <h3>≤ THB 1,000 per person.</h3>
+          <p>~¥4,400 cap at every meal. Exemptions: <strong>Akatsuki</strong> (Wed lunch) + <strong>Onodera Honten</strong> (Sat lunch). Everything else: walk-in, casual tier.</p>
+        </div>
+        <div class="status-card">
+          <span class="status-pill info">Tokyo weather</span>
+          <h3>Mid-20s°C, rain likely.</h3>
+          <p>~10 rainy days expected in the May window. Pack a compact umbrella. Fuji mornings drop to <strong>~7°C</strong> — bring a warm layer.</p>
+        </div>
+        <div class="status-card">
+          <span class="status-pill note">Driving in Japan</span>
+          <h3>IDP required.</h3>
+          <p>International Driving Permit (1949 Geneva Convention) required — a Thai license alone won't work at Nippon pickup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · ACCOMMODATION -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">02 · Accommodation</div>
+      <h2 class="display-lg section-title">Three beds across ten days.</h2>
+    </div>
+    <div class="hotel-grid">
+      <div class="hotel-card">
+        <div class="hotel-dates">May 16 – 17 · 1 night</div>
+        <div class="hotel-name">Fujikawaguchiko Resort Hotel</div>
+        <div class="hotel-loc">Lake Kawaguchi · Fuji north shore</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-dates">May 17 – 18 · 1 night</div>
+        <div class="hotel-name">Hotel Mifujien</div>
+        <div class="hotel-loc">Fujinomiya · Fuji west side</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-dates">May 18 – 24 · 6 nights</div>
+        <div class="hotel-name">Tokyu Stay Ikebukuro</div>
+        <div class="hotel-loc">Tokyo base · all city days</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · DAY BY DAY -->
+  <section id="days">
+    <div class="section-head">
+      <div class="eyebrow">03 · Day by Day</div>
+      <h2 class="display-lg section-title">Ten days, planned slot-by-slot.</h2>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day canvas">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Fri · May 15</div>
+            <div class="day-title">Departure <span class="sub">Bangkok</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Day</div><div class="slot-body">Park at Car Hub (฿1,433)</div></div>
+        <div class="slot"><div class="slot-time">20:00</div><div class="slot-body">Suvarnabhumi Airport</div></div>
+        <div class="slot"><div class="slot-time">23:35</div><div class="slot-body"><strong>BKK → NRT</strong> · overnight</div></div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day cream">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Sat · May 16</div>
+            <div class="day-title">Arrival + Fuji North <span class="sub">Lake Kawaguchi</span></div>
+          </div>
+          <span class="day-tag">Simplified</span>
+        </div>
+        <div class="slot"><div class="slot-time">07:45</div><div class="slot-body">Land NRT · clear immigration ~45–60 min</div></div>
+        <div class="slot"><div class="slot-time">~09:30</div><div class="slot-body">Pick up car at Nippon · drive ~2 hr</div></div>
+        <div class="slot"><div class="slot-time">~12:00</div><div class="slot-body"><strong>Lake Yamanaka</strong> — quick stop</div></div>
+        <div class="slot"><div class="slot-time">13:00</div><div class="slot-body"><strong>Oshino Hakkai</strong> — 1.5–2 hr, lunch nearby (hoto noodles)</div></div>
+        <div class="slot"><div class="slot-time">16:00</div><div class="slot-body"><strong>Fuji Oishi Park</strong> — golden hour for Fuji + Kawaguchiko</div></div>
+        <div class="slot"><div class="slot-time">~17:30</div><div class="slot-body">Lawson Kawaguchiko quick pass-through · check in Fujikawaguchiko Resort Hotel</div></div>
+        <div class="note-line">Hananomiyako Park dropped from Day 1 — tulip season ends mid-May, fields may be sparse. Kogamasao also dropped to fight jet lag.</div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day canvas">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Sun · May 17</div>
+            <div class="day-title">Fuji West Loop <span class="sub">Fujinomiya</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">~07:30</div><div class="slot-body"><strong>Arakurayama Sengen Park (Chureito Pagoda)</strong> — arrive before crowds</div></div>
+        <div class="slot"><div class="slot-time">10:00</div><div class="slot-body">Tenku-no Torii (skip if cloudy)</div></div>
+        <div class="slot"><div class="slot-time">11:00</div><div class="slot-body">Lake Saiko · Lake Tanuki (torii + Fuji reflection)</div></div>
+        <div class="slot"><div class="slot-time">13:00</div><div class="slot-body">Lunch — <strong>Fujinomiya Yakisoba</strong></div></div>
+        <div class="slot"><div class="slot-time">14:30</div><div class="slot-body"><strong>Shiraito Falls</strong></div></div>
+        <div class="slot"><div class="slot-time">16:00</div><div class="slot-body">Fujisan Hongu Sengen Taisha · Arayayama Shrine · Nagasaki Park</div></div>
+        <div class="slot"><div class="slot-time">Evening</div><div class="slot-body">Hotel Mifujien</div></div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day lilac">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Mon · May 18</div>
+            <div class="day-title">Hakone <span class="sub">by car</span> + drive back to Ikebukuro</div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">~09:00</div><div class="slot-body">Drive to Hakone (~1 hr)</div></div>
+        <div class="slot"><div class="slot-time">10:00</div><div class="slot-body"><strong>Owakudani</strong> — drive up via Hakone Skyline · park · sulfur vents + black eggs (no ropeway)</div></div>
+        <div class="slot"><div class="slot-time">13:00</div><div class="slot-body"><strong>Lake Ashi · Hakone Shrine</strong> — red torii in the water</div></div>
+        <div class="slot"><div class="slot-time">15:30</div><div class="slot-body">Depart Hakone (15:30 not 16:00 — Mon rush-hour buffer)</div></div>
+        <div class="slot"><div class="slot-time">~18:30–19:00</div><div class="slot-body">Return car · Nippon Ikebukuro West Exit</div></div>
+        <div class="slot"><div class="slot-time">Evening</div><div class="slot-body">Check in · Tokyu Stay Ikebukuro</div></div>
+        <div class="note-line">Pre-program return address in navi before leaving Hakone. A single C2 accident easily adds 30+ min. If Owakudani is closed for volcanic activity (rare), skip straight to Lake Ashi.</div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day canvas">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Tue · May 19</div>
+            <div class="day-title">Old Tokyo <span class="sub">Yanaka → Nezu → Ueno → Akihabara</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Morning</div><div class="slot-body"><strong>Yanaka Ginza</strong> · Yuyake Dandan stairs · <strong>Nezu Shrine</strong></div></div>
+        <div class="slot"><div class="slot-time">Lunch</div><div class="slot-body"><strong>Kamachiku</strong> (udon near Nezu)</div></div>
+        <div class="slot"><div class="slot-time">Afternoon</div><div class="slot-body">Ueno Park · Yushima Tenjin Shrine · Ameya-Yokocho market</div></div>
+        <div class="slot"><div class="slot-time">Evening</div><div class="slot-body">Akihabara · 2k540 Aki-Oka Artisan archways</div></div>
+        <div class="slot"><div class="slot-time">Dinner</div><div class="slot-body"><strong>Tonkatsu Marugo</strong> (Akihabara, walk-in queue ~30 min, cash only, ~¥2–3k). Walk-in fallbacks: <strong>Kanda Yabu Soba</strong> (est. 1880, one of Tokyo's "Big 3" historic soba shops, ~¥1.5–3k, 8-min walk from Akihabara) · <strong>Izu'ei Honten</strong> unagi in Ueno (~¥3–4.5k, one Yamanote stop back).</div></div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day coral">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Wed · May 20</div>
+            <div class="day-title">Kamakura <span class="sub">Day Trip</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Morning</div><div class="slot-body">JR Yokosuka Line from Tokyo / Shinjuku · <strong>Great Buddha (Kotoku-in)</strong> · Hasedera Temple</div></div>
+        <div class="slot"><div class="slot-time">Lunch</div><div class="slot-body"><strong>Akatsuki</strong> (aged bluefin tuna) — 3-min walk from <strong>Hase Station</strong> via Enoden, seat-reservation only</div></div>
+        <div class="slot"><div class="slot-time">Afternoon</div><div class="slot-body">Komachi-dori shopping street · Koshigoe Rakko Park or Shichirigahama Beach</div></div>
+        <div class="note-line">Original doc had Yurikamome / Shijo-Mae directions — those go to Toyosu, not Kamakura. Use Enoden line to Hase. <strong>No Enoshima</strong> (energy).</div>
+      </div>
+    </div>
+
+    <!-- Day 7 -->
+    <div class="day canvas">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Thu · May 21</div>
+            <div class="day-title">Bay &amp; Markets <span class="sub">Tsukiji → Toyosu → Odaiba</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Early AM</div><div class="slot-body"><strong>Tsukiji Outer Market</strong> — best 7–10 AM</div></div>
+        <div class="slot"><div class="slot-time">Late AM</div><div class="slot-body"><strong>Toyosu Market</strong> viewing decks · <strong>Senkyaku Banrai</strong> · free 8F footbath</div></div>
+        <div class="slot"><div class="slot-time">Afternoon</div><div class="slot-body"><strong>teamLab Planets Toyosu</strong> (book ahead online)</div></div>
+        <div class="slot"><div class="slot-time">Late PM</div><div class="slot-body">Yurikamome to Odaiba · DiverCity Gundam · Rainbow Bridge sunset walk</div></div>
+        <div class="slot"><div class="slot-time">Dinner</div><div class="slot-body"><strong>Daiba Itchome Shotengai</strong> (Aqua City 4F, walk-in, ~¥1.5–2.5k) — Showa-era retro food street, multiple small Japanese vendors (donburi, takoyaki, oden, tonkatsu), atmospheric. Walk-in fallback: backtrack one Yurikamome stop to <strong>Senkyaku Banrai Toyosu</strong> — <strong>Tonkatsu Yachiyo</strong> or various seafood-donburi shops (~¥2–4k). Bills / TY Harbor dropped (Bills has BKK branches; TY Harbor dinner pushes over budget).</div></div>
+      </div>
+    </div>
+
+    <!-- Day 8 -->
+    <div class="day mint">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Fri · May 22</div>
+            <div class="day-title">Marunouchi → Ginza → Tokyo Tower</div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Morning</div><div class="slot-body"><strong>Hamarikyu Gardens</strong> · matcha at Nakajima-no-Ochaya tea house</div></div>
+        <div class="slot"><div class="slot-time">Late AM</div><div class="slot-body">Tokyo Station red-brick facade · <strong>Kitte Garden 6F rooftop</strong> (free)</div></div>
+        <div class="slot"><div class="slot-time">Lunch</div><div class="slot-body"><strong>Ekiben</strong> from Ekibenya Matsuri · OR Marunouchi Brick Square bistros</div></div>
+        <div class="slot"><div class="slot-time">Afternoon</div><div class="slot-body">Walk to Ginza · Itoya · Ginza Six rooftop · Tsutaya art books</div></div>
+        <div class="slot"><div class="slot-time">~18:00</div><div class="slot-body"><strong>Zojoji Temple + Tokyo Tower</strong> — sunset frame</div></div>
+        <div class="slot"><div class="slot-time">Dinner</div><div class="slot-body"><strong>Toritama Ginza</strong> yakitori — counter seats, walk-in often possible before 19:00, ~¥3–4.5k (skip extra drinks to stay under cap). Walk-in fallbacks: <strong>Ginza Sarashina-Horii</strong> (est. 1789, historic Edo soba, ~¥2–4k) · <strong>Gyukatsu Motomura Ginza</strong> (cook-on-stone gyu-katsu, ~¥1.5–2.5k, Japan-only). Tofuya Ukai dropped (over budget); Yakiniku Like / Maisen dropped (BKK branches).</div></div>
+        <div class="note-line">Imperial Palace dropped — was closed Friday anyway, and not a must for you.</div>
+      </div>
+    </div>
+
+    <!-- Day 9 -->
+    <div class="day navy">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Sat · May 23</div>
+            <div class="day-title">West Tokyo <span class="sub">Shinjuku → Harajuku → Shibuya</span></div>
+          </div>
+          <span class="day-tag">Locked</span>
+        </div>
+        <div class="slot"><div class="slot-time">Morning</div><div class="slot-body"><strong>Shinjuku Gyoen</strong> garden (¥500) — peaceful start</div></div>
+        <div class="slot"><div class="slot-time">Late AM</div><div class="slot-body">Walk to Harajuku · Takeshita-dori (30 min) · crepe break</div></div>
+        <div class="slot"><div class="slot-time">Lunch</div><div class="slot-body"><strong>Kaiten Sushi Ginza Onodera Honten</strong> (Omotesando) — directly on the Harajuku → Cat Street → Shibuya walking line, no detour. Fire the "red button" online ticket the moment it opens.</div></div>
+        <div class="slot"><div class="slot-time">Afternoon</div><div class="slot-body"><strong>TOKYU PLAZA HARAKADO</strong> · Omotesando · Cat Street walk to Shibuya</div></div>
+        <div class="slot"><div class="slot-time">Late PM</div><div class="slot-body">Hachiko · <strong>Shibuya Crossing</strong> · Shibuya Hikarie 11F Sky Lobby (free Scramble view)</div></div>
+        <div class="slot"><div class="slot-time">Dinner</div><div class="slot-body">Light bite around Shibuya — <strong>Nabezo Shibuya</strong> shabu-shabu / sukiyaki tabe-hodai (~¥3.5–4k, time-limited course, walk-in possible early) · or standing soba at Shibuya Station (~¥800–1.2k) · or skip after Onodera lunch and head straight to Tocho.</div></div>
+        <div class="slot"><div class="slot-time">Evening</div><div class="slot-body"><strong>Tocho Observation Deck</strong> (free, 202m, until 21:30) + nightly projection-mapping show on the building exterior · optional Omoide Yokocho or Golden Gai wander</div></div>
+        <div class="note-line">Replaces Shibuya Sky and Meiji Jingu (already visited last trip).</div>
+      </div>
+    </div>
+
+    <!-- Day 10 -->
+    <div class="day canvas">
+      <div class="day-inner">
+        <div class="day-header">
+          <div>
+            <div class="day-meta">Sun · May 24</div>
+            <div class="day-title">Easy Morning + Home</div>
+          </div>
+          <span class="day-tag">Light</span>
+        </div>
+        <div class="slot"><div class="slot-time">~10:30</div><div class="slot-body">Check out · bags at hotel front desk or Tokyo Station lockers</div></div>
+        <div class="slot"><div class="slot-time">AM</div><div class="slot-body">Marunouchi Sunday morning walk · Tokyo Station photos · cafe breakfast</div></div>
+        <div class="slot"><div class="slot-time">~12:30</div><div class="slot-body">Grab ekiben at Tokyo Station for the train</div></div>
+        <div class="slot"><div class="slot-time">13:30</div><div class="slot-body"><strong>N'EX</strong> to Narita Airport</div></div>
+        <div class="slot"><div class="slot-time">17:30</div><div class="slot-body"><strong>NRT → BKK</strong> · home 22:15</div></div>
+        <div class="note-line">No Asakusa (already visited). Hamarikyu moved to Friday instead.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 04 · BOOKINGS -->
+  <section id="bookings">
+    <div class="section-head">
+      <div class="eyebrow">04 · Bookings to Action</div>
+      <h2 class="display-lg section-title">What still needs to be set in motion.</h2>
+    </div>
+    <div class="color-block lime">
+      <div class="bookings-list">
+        <div class="booking">
+          <div class="booking-num">1</div>
+          <div>
+            <div class="booking-title">Akatsuki · Wed May 20 lunch (Kamakura)</div>
+            <div class="booking-body">Seat-reservation only, book in advance. 3-min walk from Hase Station via Enoden. Budget-exempt.</div>
+          </div>
+        </div>
+        <div class="booking">
+          <div class="booking-num">2</div>
+          <div>
+            <div class="booking-title">Onodera Honten · Sat May 23 lunch (Omotesando)</div>
+            <div class="booking-body">No traditional reservation — fire the "red button" online ticket the morning of May 23 the moment it opens. Have the page loaded and refreshing. Budget-exempt.</div>
+          </div>
+        </div>
+        <div class="booking">
+          <div class="booking-num">3</div>
+          <div>
+            <div class="booking-title">teamLab Planets Toyosu · Thu May 21 afternoon</div>
+            <div class="booking-body">Online time-slot ticket required. Book at least a week ahead — weekend afternoons sell out fast.</div>
+          </div>
+        </div>
+        <div class="booking">
+          <div class="booking-num">4</div>
+          <div>
+            <div class="booking-title">International Driving Permit · before departure</div>
+            <div class="booking-body">1949 Geneva Convention IDP required for Nippon car pickup May 16 — Thai license alone won't work.</div>
+          </div>
+        </div>
+        <div class="booking">
+          <div class="booking-num">5</div>
+          <div>
+            <div class="booking-title">All other meals · no reservations needed</div>
+            <div class="booking-body">Every other lunch and dinner is now a walk-in restaurant within the THB 1,000 / ¥4,400 per-person cap. If a primary pick has a queue or is closed, the day cards list 1–2 walk-in fallbacks per slot.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-wordmark">Japan ’26.</div>
+    <p class="body-lg">A working document — not a finished plan. Tokyo, Mount Fuji, Hakone, and Kamakura across ten days in May.</p>
+    <div class="footer-meta">
+      <span class="caption">10 days · 3 hotels · 1 car</span>
+      <span class="caption">Revision 06 · 2026-05-12</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

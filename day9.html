@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 9 · West Tokyo — Japan '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="top-nav">
+  <a class="wordmark" href="index.html">Japan '26<span class="dot"></span></a>
+  <div class="nav-actions">
+    <span class="crumb">Day 09<span class="sep">/</span>West Tokyo</span>
+    <a class="btn-secondary btn-sm" href="day8.html" data-prev-day>← Prev</a>
+    <a class="btn-primary btn-sm" href="day10.html" data-next-day>Next <span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<header class="day-hero navy">
+  <div class="day-hero-inner">
+    <div class="eyebrow">Sat · May 23 · Day 09</div>
+    <h1 class="display-lg">West Tokyo <span class="sub">Shinjuku → Harajuku → Shibuya</span></h1>
+    <div class="flow-line" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day-pill-row">
+      <span class="chip sakura">Onodera red-button fire</span>
+      <span class="chip">Sat = crowds</span>
+      <span class="chip">Walking-heavy</span>
+      <span class="chip">Tocho night</span>
+    </div>
+  </div>
+</header>
+
+<div class="container-narrow">
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">01 · Weather window</div>
+      <h2 class="display-lg section-title">Late spring Saturday.</h2>
+    </div>
+    <div class="weather-row">
+      <div class="weather-card lead">
+        <span class="weather-icon partly" aria-hidden="true">⛅</span>
+        <div class="label">West Tokyo · day</div>
+        <div class="big">25°<span class="unit">/ 18°</span></div>
+        <div class="desc">Saturday in West Tokyo = crowd peak. Pleasant temps but Takeshita-dori will be shoulder-to-shoulder by 11:00. Shinjuku Gyoen is the quiet escape early.</div>
+        <a class="external-link" href="https://tenki.jp/forecast/3/16/4410/13104/" target="_blank" rel="noopener">tenki.jp Shibuya →</a>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon rain" aria-hidden="true">☂</span>
+        <div class="label">Rain chance</div>
+        <div class="big">30<span class="unit">%</span></div>
+        <div class="desc">Late PM cell possible — Cat Street has covered arcades.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon" aria-hidden="true">↑</span>
+        <div class="label">Gyoen opens</div>
+        <div class="big">09:00</div>
+        <div class="desc">Aim for 09:00 sharp = empty paths.</div>
+      </div>
+      <div class="weather-card">
+        <span class="weather-icon warm" aria-hidden="true">↓</span>
+        <div class="label">Tocho deck</div>
+        <div class="big">until 21:30</div>
+        <div class="desc">Best 19:30–20:30 for projection.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">02 · Route</div>
+      <h2 class="display-lg section-title">Quiet → loud → quiet → high. The full West Tokyo arc.</h2>
+    </div>
+    <div class="map-wrap">
+      <div id="day-map" class="map-canvas" data-map="day9"></div>
+      <div class="map-legend">
+        <div><span class="swatch"></span>Walking · real streets</div>
+        <div><span class="swatch dashed"></span>Subway/JR hop (Shibuya → Shinjuku)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">03 · Timeline</div>
+      <h2 class="display-lg section-title">Slot by slot.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-num">1</div><div class="timeline-time">Morning</div><div class="timeline-body"><strong>Shinjuku Gyoen</strong> garden (¥500) — peaceful start before the city wakes. Three garden styles (English, French, Japanese) on one site.</div></div>
+      <div class="timeline-item"><div class="timeline-num">2</div><div class="timeline-time">Late AM</div><div class="timeline-body">Walk to Harajuku (~30 min) · <strong>Takeshita-dori</strong> · crepe break at Marion. <span class="small">Cat Street and Omotesando are the calmer route south.</span></div></div>
+      <div class="timeline-item"><div class="timeline-num">3</div><div class="timeline-time">Lunch</div><div class="timeline-body"><strong>Kaiten Sushi Ginza Onodera Honten</strong> (Omotesando). Directly on the Harajuku → Cat Street → Shibuya walking line, no detour. <strong>Fire the "red button" online ticket the moment it opens.</strong></div></div>
+      <div class="timeline-item"><div class="timeline-num">4</div><div class="timeline-time">Afternoon</div><div class="timeline-body"><strong>TOKYU PLAZA HARAKADO</strong> · Omotesando · <strong>Cat Street</strong> walk to Shibuya.</div></div>
+      <div class="timeline-item"><div class="timeline-num">5</div><div class="timeline-time">Late PM</div><div class="timeline-body"><strong>Hachiko</strong> · <strong>Shibuya Crossing</strong> · <strong>Shibuya Hikarie 11F Sky Lobby</strong> (free Scramble view).</div></div>
+      <div class="timeline-item"><div class="timeline-num">6</div><div class="timeline-time">Dinner</div><div class="timeline-body">Light bite around Shibuya — Nabezo shabu-shabu tabe-hodai · or standing soba at Shibuya Station · or skip and head straight to Tocho.</div></div>
+      <div class="timeline-item"><div class="timeline-num">7</div><div class="timeline-time">Evening</div><div class="timeline-body"><strong>Tocho Observation Deck</strong> (free, 202m, until 21:30) + nightly projection-mapping show on the building exterior · optional Omoide Yokocho / Golden Gai wander.</div></div>
+    </div>
+    <div class="note-line"><strong>Replaces.</strong> Shibuya Sky and Meiji Jingu (already visited last trip).</div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">04 · Where to eat</div>
+      <h2 class="display-lg section-title">The Onodera lunch + Shibuya dinner options.</h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card exempt">
+        <div class="food-card-head"><span class="food-meal">Lunch · primary (red-button)</span></div>
+        <div class="food-name">Kaiten Sushi Ginza Onodera Honten</div>
+        <div class="food-cuisine">High-end kaiten sushi from the Ginza Onodera group. Each piece arrives chef-fired; "red button" online ticket releases morning of.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-exempt">Budget exempt</span>
+          <span class="food-stat">Online same-day</span>
+          <span class="food-stat">Omotesando</span>
+        </div>
+        <div class="food-note">Have the booking page open + refreshing the moment release opens (typically ~10:00). Slots evaporate in seconds.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Onodera+Honten+Omotesando" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · fallback if no slot</span></div>
+        <div class="food-name">Maisen avoidance — try Tonki (Meguro)</div>
+        <div class="food-cuisine">Tonkatsu institution since 1939. Original location only. White-jacketed staff, counter seats around the fryer.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥2,200</span>
+          <span class="food-stat">Walk-in queue 30 min</span>
+          <span class="food-stat">Single location</span>
+        </div>
+        <div class="food-note">Detour 10 min south on Yamanote to Meguro. If you can't get Onodera, this is the day's lunch hero.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tonki+Meguro" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Lunch · easy alt</span></div>
+        <div class="food-name">Afuri-avoidance — try Uobei (Shibuya)</div>
+        <div class="food-cuisine">Conveyor sushi via touchscreen — tech novelty, no human contact, individual booths. Genki Sushi's competitor (Genki has BKK).</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥1,500</span>
+          <span class="food-stat">Walk-in</span>
+          <span class="food-stat">Japan-only chain</span>
+        </div>
+        <div class="food-note">Fun, cheap, fast. Useful if you skip Onodera entirely.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Uobei+Shibuya" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card primary">
+        <div class="food-card-head"><span class="food-meal">Dinner · primary</span></div>
+        <div class="food-name">Nabezo Shibuya (shabu / sukiyaki tabe-hodai)</div>
+        <div class="food-cuisine">All-you-can-eat shabu-shabu or sukiyaki with quality beef + vegetables. Time-limited course (100 min).</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥3,500–4,000</span>
+          <span class="food-stat">Walk-in early</span>
+          <span class="food-stat">100 min limit</span>
+        </div>
+        <div class="food-note">Right at cap. Arrive by 17:30 to walk in; later = reservation needed.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Nabezo+Shibuya" target="_blank" rel="noopener">Map →</a>
+      </div>
+      <div class="food-card">
+        <div class="food-card-head"><span class="food-meal">Dinner · light alt</span></div>
+        <div class="food-name">Tachigui-soba at Shibuya Station (Tatsuya)</div>
+        <div class="food-cuisine">Standing soba bar — order at the machine, hot bowl in 3 min. Tempura on top is ¥150.</div>
+        <div class="food-stats">
+          <span class="food-stat budget-ok">~¥800–1,200</span>
+          <span class="food-stat">Walk-in</span>
+        </div>
+        <div class="food-note">If Onodera filled you up, this is the perfect light dinner before Tocho.</div>
+        <a class="food-link" href="https://maps.google.com/?q=Tachigui+soba+Shibuya+Station" target="_blank" rel="noopener">Map →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">05 · Don't miss</div>
+      <h2 class="display-lg section-title">Visual references.</h2>
+    </div>
+    <div class="visual-grid">
+      <div class="visual-note">
+        <img src="assets/images/shibuya-crossing.jpg" alt="Shibuya Crossing">
+        <div class="caption-area">
+          <div class="label">Shibuya Crossing</div>
+          <div class="title">From Hikarie 11F</div>
+          <div class="desc">The free Sky Lobby view from Hikarie 11F beats most paid observation decks for the Crossing itself. Best at dusk + light rain (umbrellas in frame).</div>
+        </div>
+      </div>
+      <div class="visual-note">
+        <img src="assets/images/tocho.jpg" alt="Tocho Tokyo Metropolitan Government Building">
+        <div class="caption-area">
+          <div class="label">Tocho (TMG Building)</div>
+          <div class="title">Free 202m observation</div>
+          <div class="desc">North or South tower, free entry. Night projection-mapping show runs on the exterior facade — watch from the plaza outside, not from inside the deck.</div>
+        </div>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Omotesando → Onodera</span>
+        <span class="title">Walking line, no detour</span>
+        <ol>
+          <li>Tokyo Metro to <strong>Omotesando Station</strong> (Chiyoda / Ginza / Hanzomon lines)</li>
+          <li>Take <strong>Exit A2</strong> for the Aoyama-dori side</li>
+          <li>Walk 3 min east — Onodera Honten is in a polished building with a small black sign</li>
+          <li>If you booked online, show QR; if not, ask staff about same-day kaiten counter availability</li>
+        </ol>
+      </div>
+      <div class="station-exit-box">
+        <span class="label">Tocho approach + viewing</span>
+        <span class="title">Free observation deck logistics</span>
+        <ol>
+          <li>Toei Oedo Line to <strong>Tochomae</strong>, or 10-min walk from JR Shinjuku West Exit</li>
+          <li>Enter at ground floor — security check (bag scan)</li>
+          <li>Free elevator to 45F North or South Observatory (alternate days)</li>
+          <li>For projection mapping: watch from <strong>outside the building</strong>, on the plaza facing the south face; ~19:30 nightly show</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head">
+      <div class="eyebrow">06 · Tips for today</div>
+      <h2 class="display-lg section-title">Worth remembering.</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="note-line warn"><strong>Onodera red-button.</strong> Have <em>two</em> devices open with the booking page if possible. Slots are typically all gone in &lt;30 seconds.</div>
+      <div class="note-line tip"><strong>Avoid Takeshita-dori past 12:00.</strong> If you didn't go early, skip it. Cat Street has the same atmosphere with 1/3 the people.</div>
+      <div class="note-line tip"><strong>Golden Gai etiquette.</strong> If you go, peek at the doorway sign — some bars are members-only or have cover charges. Be respectful with photos; no flash inside.</div>
+    </div>
+  </section>
+
+  <div class="day-nav reveal">
+    <a href="day8.html" data-prev-day>
+      <span class="label">← Previous · Fri May 22</span>
+      <span class="title">Day 08 · Marunouchi + Ginza</span>
+    </a>
+    <a class="next" href="day10.html" data-next-day>
+      <span class="label">Next · Sun May 24</span>
+      <span class="title">Day 10 · Home →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer class="footer container">
+  <div class="footer-wordmark">Day 09.</div>
+  <p class="body-lg">Quiet garden, loud street, perfect sushi, neon panorama. West Tokyo top to bottom.</p>
+  <div class="footer-meta">
+    <span class="caption">Japan '26 · Day 09 of 10</span>
+    <span class="caption"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to itinerary</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/routes.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
