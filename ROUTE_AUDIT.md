@@ -2,7 +2,9 @@
 
 **Audit date:** 2026-05-13
 **Scope:** Pin coordinates and visit order across `day1.html` – `day10.html`, cross-checked against `build_routes.py`.
-**Result:** No mis-pinned locations. All issues found are ordering / routing, not bad coordinates.
+**Result:** No mis-pinned locations after the 2026-05-14 amendment. All ordering / routing issues now resolved.
+
+**2026-05-14 amendment.** A Denso Mapcode lookup pass surfaced three stale pins that the original 2026-05-13 audit missed: Tenku-no Torii, Hotel Mifujien, and the Nippon Ikebukuro return office. All three are now corrected in `build_routes.py`, `assets/routes.js`, and the day pages. See the per-day notes below.
 
 ## Per-day verdict
 
@@ -10,7 +12,7 @@
 |-----|-------|--------|
 | 1   | Bangkok → Narita departure | OK |
 | 2   | Arrival → Fuji north (Kawaguchiko area) | OK |
-| 3   | Fuji west loop | Minor (single swap fixes it) |
+| 3   | Fuji west loop | OK (coord fix + swap reverted 2026-05-14) |
 | 4   | Hakone → Tokyo (Ikebukuro) | OK |
 | 5   | Old Tokyo (Yanaka → Ueno → Akihabara) | OK (cleanest day) |
 | 6   | Kamakura | OK |
@@ -21,13 +23,17 @@
 
 ---
 
-## Day 3 — Fuji west loop (minor)
+## Day 3 — Fuji west loop (resolved 2026-05-14, with coord fix)
 
-Current order: Hotel Mifujien → **Chureito Pagoda** → Tenku-no Torii → Lake Saiko → Lake Tanuki → Fujinomiya yakisoba → Shiraito Falls → Sengen Taisha → Mifujien.
+Final order: Fujikawaguchiko Resort Hotel → **Chureito Pagoda** → **Tenku-no Torii** → **Lake Saiko** → **Lake Tanuki** → Fujinomiya yakisoba → Shiraito Falls → Sengen Taisha → Hotel Mifujien.
 
-**Chureito first is correct.** The pagoda-with-Fuji shot wants morning light (clearer air, less afternoon haze) and pre-crowd timing, so the ~45 km drive north from Mifujien is a deliberate anchor, not a wasted detour. Moving Chureito to Day 2 isn't viable — Day 2 is already a packed jetlagged arrival day (Narita → rental → 2.5 h drive → Yamanaka → Oshino → Oishi Park → hotel).
+**Chureito first is correct.** The pagoda-with-Fuji shot wants morning light (clearer air, less afternoon haze) and pre-crowd timing. Moving Chureito to Day 2 isn't viable — Day 2 is already a packed jetlagged arrival day (Narita → rental → 2.5 h drive → Yamanaka → Oshino → Oishi Park → hotel).
 
-**The actual fix is a single swap.** Northern stops in east-to-west longitude order: Chureito (138.80) > Saiko (138.68) > Tenku-no Torii (138.60) > Tanuki (138.57). The current sequence Chureito → Tenku → Saiko → Tanuki goes E → W → middle → W, which means a small backtrack east from Tenku to Saiko before heading west again. Swapping Tenku-no Torii and Lake Saiko gives Chureito → Saiko → Tenku → Tanuki = E → middle → W → W, monotonic east-to-west across the north side before the southern leg.
+**Coord fix (2026-05-14).** Tenku-no Torii was previously pinned at `35.4675, 138.6010` — that's in the Aokigahara / Fugaku Wind Cave area, not the actual viewpoint. The real Tenku-no Torii is the viewpoint at **Kawaguchi Asama Shrine** at `35.5309, 138.7745`, ~17 km NE of the wrong pin. Hotel Mifujien was also stale: pinned at `35.2310, 138.6120` (Fujinomiya south) but the actual hotel is at `35.5129, 138.7741` in Fujikawaguchiko (north). Both pinned correctly now.
+
+**Original order was right; the 2026-05-13 swap is reverted.** With the corrected Tenku coord, the east-to-west longitude order across the north side is Chureito (138.80) > Tenku (138.77) > Saiko (138.68) > Tanuki (138.57) — monotonic E → W, no backtrack. The 2026-05-13 audit had recommended swapping Tenku and Saiko based on the wrong Tenku coord; with the right coord, Chureito → Tenku → Saiko → Tanuki is what you want.
+
+**Side effect of the Mifujien fix.** The hotel is on the north side of Fuji, so Day 3 still finishes at Sengen Taisha (south, Fujinomiya) but adds a ~50-min northbound drive back to Mifujien for the night. Day 4 then starts north and runs east to Hakone. Day 3 timeline note updated to flag this; Day 4 timeline already departs Mifujien at 09:00 which works from the corrected location.
 
 ## Day 7 — Bay & markets (minor)
 

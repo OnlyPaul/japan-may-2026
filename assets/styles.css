@@ -1176,6 +1176,48 @@ section { margin-bottom: 96px; }
   align-items: center;
   justify-content: center;
 }
+.nav-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.nav-table th,
+.nav-table td {
+  text-align: left;
+  padding: 6px 8px 6px 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+.nav-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  opacity: 0.65;
+  font-weight: 540;
+}
+.nav-table td.mc {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 540;
+  white-space: nowrap;
+}
+.nav-table td.gps {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.nav-table tr:last-child td { border-bottom: none; }
+.color-block .nav-table th,
+.color-block .nav-table td { border-bottom-color: rgba(26, 26, 26, 0.14); }
+.color-block .nav-table th { opacity: 0.55; }
+.nav-foot {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.75;
+  margin: 16px 0 0;
+}
+.color-block .nav-foot { opacity: 0.7; }
 
 /* ============================================================
    TIPS / NOTE LINES
