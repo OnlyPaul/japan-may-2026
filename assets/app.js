@@ -150,6 +150,126 @@
     }
   }
 
+  // -------- Pack list (pack.html) --------
+  const PACK_STORAGE_KEY = 'jp2026:pack-list:v1';
+
+  function readPackMap() {
+    try {
+      const raw = localStorage.getItem(PACK_STORAGE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      return (parsed && typeof parsed === 'object') ? parsed : {};
+    } catch (e) {
+      return {};
+    }
+  }
+  function writePackMap(map) {
+    try {
+      localStorage.setItem(PACK_STORAGE_KEY, JSON.stringify(map));
+    } catch (e) {
+      console.warn('Pack list: localStorage write failed.', e);
+    }
+  }
+
+  function initPackList() {
+    const root = document.querySelector('[data-pack-list]');
+    if (!root) return;
+
+    const items = Array.from(root.querySelectorAll('[data-pack-item]'));
+    const valueEl = root.querySelector('[data-pack-progress-value]');
+    const pctEl = root.querySelector('[data-pack-progress-pct]');
+    const barEl = root.querySelector('[data-pack-progress-bar]');
+    const resetBtn = root.querySelector('[data-pack-reset]');
+
+    const dockEl = document.querySelector('[data-pack-dock]');
+    const dockValueEl = document.querySelector('[data-pack-dock-value]');
+    const dockPctEl = document.querySelector('[data-pack-dock-pct]');
+    const dockFillEl = document.querySelector('[data-pack-dock-fill]');
+    const dockScrollEl = document.querySelector('[data-pack-dock-scroll]');
+    if (dockEl) document.body.classList.add('has-pack-dock');
+
+    const saved = readPackMap();
+
+    items.forEach((item) => {
+      const id = item.dataset.packItem;
+      const input = item.querySelector('input[type="checkbox"]');
+      if (!input) return;
+      if (saved[id]) {
+        input.checked = true;
+        item.classList.add('is-packed');
+      }
+      input.addEventListener('change', () => {
+        const map = readPackMap();
+        if (input.checked) {
+          map[id] = true;
+          item.classList.add('is-packed');
+        } else {
+          delete map[id];
+          item.classList.remove('is-packed');
+        }
+        writePackMap(map);
+        updateProgress();
+      });
+    });
+
+    function updateProgress() {
+      const total = items.length;
+      const checked = items.filter((i) => i.querySelector('input').checked).length;
+      const pct = total ? Math.round((checked / total) * 100) : 0;
+      const valueText = `${checked} / ${total}`;
+      const pctText = `${pct}%`;
+      const widthText = `${pct}%`;
+      if (valueEl) valueEl.textContent = valueText;
+      if (pctEl) pctEl.textContent = pctText;
+      if (barEl) barEl.style.width = widthText;
+      if (dockValueEl) dockValueEl.textContent = valueText;
+      if (dockPctEl) dockPctEl.textContent = pctText;
+      if (dockFillEl) dockFillEl.style.width = widthText;
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const anyChecked = items.some((i) => i.querySelector('input').checked);
+        if (!anyChecked) return;
+        if (!window.confirm('Clear every checked item from your pack list?')) return;
+        try { localStorage.removeItem(PACK_STORAGE_KEY); } catch (e) {}
+        items.forEach((item) => {
+          const input = item.querySelector('input');
+          if (input) input.checked = false;
+          item.classList.remove('is-packed');
+        });
+        updateProgress();
+      });
+    }
+
+    // Dock: reveal when the main progress strip scrolls out of view, hide when it returns.
+    const mainStrip = root.querySelector('.pack-progress');
+    if (dockEl && mainStrip && 'IntersectionObserver' in window) {
+      const dockObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            dockEl.classList.remove('is-visible');
+          } else if (entry.boundingClientRect.top < 0) {
+            // Only show when the strip has passed *above* the viewport (scrolled past),
+            // not when the user is still above it (initial load).
+            dockEl.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+      dockObserver.observe(mainStrip);
+    }
+
+    // Tap the dock to scroll back to the top of the list.
+    if (dockScrollEl) {
+      dockScrollEl.addEventListener('click', () => {
+        const target = root.querySelector('.pack-progress') || root;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    updateProgress();
+  }
+
   // -------- Init on DOM ready --------
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
@@ -161,6 +281,7 @@
     initCounters();
     initKeyboardNav();
     highlightToday();
+    initPackList();
     // Init day map if present
     const mapEl = document.querySelector('[data-map]');
     if (mapEl) {
