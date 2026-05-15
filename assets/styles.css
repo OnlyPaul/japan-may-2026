@@ -1318,6 +1318,14 @@ section { margin-bottom: 96px; }
 }
 @media (max-width: 768px) {
   .top-nav .nav-actions .btn-secondary { display: none; }
+  .top-nav .nav-actions .btn-secondary.nav-pack-link {
+    display: inline-flex;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  .top-nav .nav-actions .btn-primary { white-space: nowrap; }
+  .top-nav .nav-actions { gap: 8px; }
   .top-nav .nav-actions .crumb { display: none; }
   .container, .container-narrow { padding: 40px 24px; }
   section { margin-bottom: 64px; }
